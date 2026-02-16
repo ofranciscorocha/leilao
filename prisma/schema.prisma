@@ -1,0 +1,57 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  name      String?
+  email     String   @unique
+  password  String
+  role      String   @default("USER") // USER, ADMIN
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  bids      Bid[]
+}
+
+model Auction {
+  id          String   @id @default(cuid())
+  title       String
+  description String?
+  imageUrl    String?
+  startDate   DateTime
+  endDate     DateTime
+  status      String   @default("OPEN") // OPEN, CLOSED, UPCOMING
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  lots        Lot[]
+}
+
+model Lot {
+  id              String   @id @default(cuid())
+  title           String
+  description     String?
+  startingPrice   Float
+  incrementAmount Float    @default(50.0)
+  currentBid      Float?
+  imageUrl        String?
+  auctionId       String
+  auction         Auction  @relation(fields: [auctionId], references: [id])
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  bids            Bid[]
+}
+
+model Bid {
+  id        String   @id @default(cuid())
+  amount    Float
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  lotId     String
+  lot       Lot      @relation(fields: [lotId], references: [id])
+  createdAt DateTime @default(now())
+}
