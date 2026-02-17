@@ -13,18 +13,21 @@ async function main() {
             lots: {
                 create: [
                     {
+                        lotNumber: 1,
                         title: 'Chevrolet Onix 2020 1.0 Flex',
                         description: 'Veículo em bom estado. Pequenos riscos na lataria. Motor funcionando.',
                         startingPrice: 25000,
                         imageUrl: 'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&q=80&w=2070',
                     },
                     {
+                        lotNumber: 2,
                         title: 'Volkswagen Gol 2019 1.6 MSI',
                         description: 'Veículo de frota. Quilometragem alta. Necesita revisão.',
                         startingPrice: 18000,
                         imageUrl: 'https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?auto=format&fit=crop&q=80&w=2070',
                     },
                     {
+                        lotNumber: 3,
                         title: 'Toyota Corolla 2021 XEi',
                         description: 'Sinistro média monta. Airbags acionados.',
                         startingPrice: 45000,

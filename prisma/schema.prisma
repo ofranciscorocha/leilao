@@ -4,54 +4,275 @@ generator client {
 
 datasource db {
   provider = "sqlite"
-  url      = env("DATABASE_URL")
+  url      = "file:./dev.db"
 }
+
+// --- SYSTEM SETTINGS (The Brain) ---
+
+model SystemSettings {
+  id            String    @id @default("SETTINGS") // Singleton ID
+  
+  // Site Identity
+  siteName      String    @default("Pátio Rocha Leilões")
+  siteUrl       String?
+  logoUrl       String?
+  faviconUrl    String?
+  
+  // Toggles (Features)
+  enableAuctions    Boolean @default(true)
+  enableBidding     Boolean @default(true)
+  enableUserSignup  Boolean @default(true)
+  maintenanceMode   Boolean @default(false)
+  hideSoldValues    Boolean @default(false)
+  
+  // Legal & SEO
+  termsOfService    String? // HTML
+  privacyPolicy     String? // HTML
+  seoTitle          String?
+  seoDescription    String?
+  
+  // Contact
+  contactEmail      String?
+  contactPhone      String?
+  address           String?
+  
+  updatedAt     DateTime  @updatedAt
+}
+
+// --- USERS (Arrematantes & Comitentes) ---
 
 model User {
-  id        String   @id @default(cuid())
-  name      String?
-  email     String   @unique
-  password  String
-  role      String   @default("USER") // USER, ADMIN
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  bids      Bid[]
+  id            String    @id @default(cuid())
+  name          String?   // Nome Completo / Responsável
+  email         String    @unique
+  password      String
+  role          String    @default("USER") // USER, ADMIN, COMITENTE
+  
+  // Type Discriminator
+  type          String    @default("PF")   // PF, PJ
+  
+  // PF Fields
+  cpf           String?   @unique
+  rg            String?
+  orgEmitter    String?   // Órgão Emissor
+  dispatchDate  DateTime? // Data Expedição
+  cnh           String?
+  cnhIssueDate  DateTime?
+  gender        String?
+  birthDate     DateTime?
+  nationality   String?
+  naturalness   String?   // Naturalidade
+  motherName    String?
+  maritalStatus String?
+
+  // PJ Fields
+  cnpj            String?   @unique
+  corporateName   String?   // Razão Social
+  tradeName       String?   // Nome Fantasia
+  stateInscription String?  // Inscrição Estadual
+  responsibleName String?
+
+  // Contact
+  phone         String?
+  mobile        String?
+
+  // Address (Residencial / Comercial)
+  zipCode       String?
+  address       String?   // Logradouro
+  number        String?
+  complement    String?
+  neighborhood  String?
+  city          String?
+  state         String?
+
+  // System Status
+  status        String    @default("PENDING") // PENDING, ACTIVE, BLOCKED, REJECTED
+  internalNotes String?
+  
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  bids          Bid[]
+  wonLots       Lot[]     @relation("LotWinner")
+  documents     UserDocument[]
+  inspections   VehicleInspection[]
 }
 
-model Auction {
-  id          String   @id @default(cuid())
-  title       String
-  description String?
-  imageUrl    String?
-  startDate   DateTime
-  endDate     DateTime
-  status      String   @default("OPEN") // OPEN, CLOSED, UPCOMING
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-  lots        Lot[]
+model UserDocument {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  type      String   // CNH, RG, COMP_RESIDENCIA, CONTRATO_SOCIAL
+  status    String   @default("PENDING") // PENDING, APPROVED, REJECTED
+  fileUrl   String
+  createdAt DateTime @default(now())
 }
+
+// --- AUCTIONS (Leilões) ---
+
+model Auction {
+  id            String    @id @default(cuid())
+  title         String
+  description   String?   // CKEditor HTML content
+  summary       String?   // Breve Descrição
+  coverImage    String?
+  
+  // Status & Types
+  status        String    @default("UPCOMING") // OPEN, CLOSED, UPCOMING, PAUSED, LIVE, DIVULGATION
+  type          String    @default("ONLINE")   // ONLINE, PRESENTIAL, MIXED, LIVE
+  modalidade    String?   // JUDICIAL, EXTRAJUDICIAL, PUBLIC, BENEFICENTE
+  
+  // Configuration
+  singleComitente Boolean @default(false)
+  hideDates       Boolean @default(false)
+  squares         String  @default("UNIQUE")   // UNIQUE, FIRST_SECOND
+  
+  // Dates
+  biddingStart    DateTime?
+  startDate       DateTime // Data do Leilão (Fechamento/Evento)
+  endDate         DateTime // Often same as startDate for Live, or close date for Online
+  visitationInfo  String?
+  
+  // Rules
+  enableGuestBids Boolean @default(false) // Habilitação Automática vs Manual
+  audienceRestriction String @default("ALL") // ALL, PF_ONLY, PJ_ONLY
+  paymentInstallments Boolean @default(false) // Parcelamento
+  maskUser        String  @default("PARTIAL_NAME") // PARTIAL_NAME (a***b), ALIAS (L_xx), NONE
+  requireLogin    Boolean @default(false) // Restrict view to logged users
+  redirectUrl     String?
+  
+  // Real-Time / Streaming
+  streamingUrl    String? // YouTube/HLS URL
+  overtimeSeconds Int     @default(120) // Tempo de acréscimo
+  
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  lots          Lot[]
+}
+
+// --- LOTS (Lotes) ---
 
 model Lot {
   id              String   @id @default(cuid())
-  title           String
-  description     String?
+  lotNumber       Int
+  title           String   // Marca/Modelo usually
+  description     String?  // Detailed description
+  
+  // Logistics / Details
+  category        String   @default("VEICULO") // VEICULO, IMOVEL, DIVERSOS
+  manufacturer    String?
+  model           String?
+  year            String?
+  color           String?
+  fuel            String?
+  plate           String?
+  chassis         String?
+  location        String?
+  
+  // Financials
   startingPrice   Float
   incrementAmount Float    @default(50.0)
+  reservePrice    Float?
   currentBid      Float?
-  imageUrl        String?
+  
+  // Status
+  status          String   @default("PENDING") // PENDING, OPEN, SOLD, CONDITIONAL, UNSOLD, SUSPENDED
+  condition       String?  // RECUPERAVEL, SUCATA, ETC.
+  
+  // Media
+  imageUrl        String?  // Main image
+  
   auctionId       String
   auction         Auction  @relation(fields: [auctionId], references: [id])
+  
+  winnerId        String?
+  winner          User?    @relation("LotWinner", fields: [winnerId], references: [id])
+  
   createdAt       DateTime @default(now())
   updatedAt       DateTime @updatedAt
+  
   bids            Bid[]
+  images          LotImage[]
+  
+  // Modules
+  logistics       LotLogistics?
+  inspection      VehicleInspection?
 }
+
+model LotImage {
+  id        String   @id @default(cuid())
+  url       String
+  order     Int      @default(0)
+  lotId     String
+  lot       Lot      @relation(fields: [lotId], references: [id], onDelete: Cascade)
+}
+
+model LotLogistics {
+  id              String   @id @default(cuid())
+  lotId           String   @unique
+  lot             Lot      @relation(fields: [lotId], references: [id], onDelete: Cascade)
+  
+  entryDate       DateTime @default(now())
+  storageLocation String?  // Setor A, Vaga 12
+  keyLocation     String?  // Claviculario B
+  
+  hasKeys         Boolean  @default(false)
+  hasManual       Boolean  @default(false)
+  
+  updatedAt       DateTime @updatedAt
+}
+
+model VehicleInspection {
+  id              String   @id @default(cuid())
+  lotId           String   @unique
+  lot             Lot      @relation(fields: [lotId], references: [id], onDelete: Cascade)
+  
+  inspectorId     String?
+  inspector       User?    @relation(fields: [inspectorId], references: [id])
+  
+  // Condition Report
+  engineStatus    String?  // WORKING, DAMAGED, MISSING
+  transmission    String?
+  bodywork        String?  // GOOD, SCRATCHED, DENTED, TOTAL_LOSS
+  upholstery      String?
+  
+  checklist       String?  // JSON with specific checks (Lights, Battery, etc)
+  notes           String?
+  
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+// --- BIDS (Lances) ---
 
 model Bid {
   id        String   @id @default(cuid())
   amount    Float
+  
   userId    String
   user      User     @relation(fields: [userId], references: [id])
+  
   lotId     String
   lot       Lot      @relation(fields: [lotId], references: [id])
-  createdAt DateTime @default(now())
+  
+  type      String   @default("MANUAL") // MANUAL, AUTO
+  
+  timestamp DateTime @default(now())
 }
+
+// --- CMS (Content Management) ---
+
+model Banner {
+  id          String   @id @default(cuid())
+  title       String
+  imageUrl    String
+  linkUrl     String?
+  active      Boolean  @default(true)
+  order       Int      @default(0)
+  position    String   @default("HOME_HERO") // HOME_HERO, HOME_SECONDARY
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+

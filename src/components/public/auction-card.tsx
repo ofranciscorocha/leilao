@@ -1,8 +1,8 @@
 import Link from 'next/link'
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
+import { Card, CardContent, CardFooter } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
-import { Calendar, Package } from 'lucide-react'
+import { Calendar, MapPin, Gavel } from 'lucide-react'
 import { formatDate } from '@/lib/utils'
 import { Auction } from '@prisma/client'
 
@@ -12,46 +12,62 @@ interface AuctionCardProps {
 
 export function AuctionCard({ auction }: AuctionCardProps) {
     return (
-        <Card className="overflow-hidden hover:shadow-lg transition-shadow">
-            <div className="h-48 bg-gray-200 relative">
-                {auction.imageUrl ? (
-                    <img src={auction.imageUrl} alt={auction.title} className="w-full h-full object-cover" />
-                ) : (
-                    <div className="w-full h-full flex items-center justify-center text-gray-400 bg-gray-100">
-                        No Image
-                    </div>
-                )}
-                <div className="absolute top-2 right-2">
-                    <Badge variant={auction.status === 'OPEN' ? 'default' : 'secondary'}>
-                        {auction.status}
-                    </Badge>
+        <Card className="overflow-hidden border shadow-sm hover:shadow-md transition-shadow flex flex-col h-full bg-white group">
+            {/* Header Status */}
+            <div className="bg-[#1e293b] text-white py-1 px-3 text-[10px] font-bold uppercase tracking-wider flex justify-between items-center">
+                <span className="flex items-center gap-1">
+                    <Gavel className="h-3 w-3" />
+                    Aberto para lances
+                </span>
+            </div>
+
+            {/* Image / Logo Section */}
+            <div className="h-32 bg-gray-100 relative border-b p-4 flex items-center justify-center">
+                {/* Placeholder for Seller Logo */}
+                <div className="bg-white p-2 rounded shadow-sm">
+                    <span className="font-bold text-xl text-gray-400">LOGO</span>
                 </div>
             </div>
-            <CardHeader>
-                <CardTitle className="line-clamp-1">{auction.title}</CardTitle>
-            </CardHeader>
-            <CardContent>
-                <p className="text-sm text-gray-500 line-clamp-2 mb-4">
-                    {auction.description || 'No description available.'}
-                </p>
-                <div className="flex items-center gap-4 text-sm text-gray-600">
-                    <div className="flex items-center gap-1">
-                        <Calendar className="h-4 w-4" />
-                        <span>{formatDate(auction.endDate)}</span>
+
+            <CardContent className="p-4 flex-1">
+                <h3 className="font-bold text-sm text-gray-800 mb-4 line-clamp-2 h-10 leading-tight group-hover:text-blue-700 transition-colors">
+                    {auction.title}
+                </h3>
+
+                <div className="space-y-3 text-xs text-gray-600">
+                    <div className="flex flex-col">
+                        <span className="font-bold text-gray-900">1º Leilão:</span>
+                        <span className="flex items-center gap-1">
+                            {formatDate(auction.endDate)}
+                        </span>
                     </div>
-                    <div className="flex items-center gap-1">
-                        <Package className="h-4 w-4" />
-                        <span>{auction._count.lots} lots</span>
+                    <div className="flex flex-col">
+                        <span className="font-bold text-gray-900">2º Leilão:</span>
+                        <span className="flex items-center gap-1">
+                            {formatDate(new Date(auction.endDate.getTime() + 7 * 24 * 60 * 60 * 1000))}
+                        </span>
+                    </div>
+                </div>
+
+                <div className="mt-4 pt-4 border-t flex flex-col gap-1">
+                    <div className="text-xs text-gray-500 font-semibold uppercase">
+                        Apartamento DUPLEX em São Paulo/SP
+                    </div>
+                    <div className="flex items-center gap-1 text-[10px] text-gray-400 uppercase">
+                        <MapPin className="h-3 w-3" />
+                        Online
                     </div>
                 </div>
             </CardContent>
-            <CardFooter>
-                <Button className="w-full" asChild>
-                    <Link href={`/auctions/${auction.id}`}>
-                        View Lots
-                    </Link>
-                </Button>
-            </CardFooter>
+
+            {/* Footer Status Bar */}
+            <div className="bg-green-600 text-white text-center py-2 text-xs font-bold uppercase tracking-wide">
+                EM ANDAMENTO
+            </div>
+
+            <Link href={`/auctions/${auction.id}`} className="absolute inset-0 z-10">
+                <span className="sr-only">View Auction</span>
+            </Link>
         </Card>
     )
 }

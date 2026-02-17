@@ -38,9 +38,9 @@ export function CreateAuctionDialog() {
     return (
         <Dialog open={open} onOpenChange={setOpen}>
             <DialogTrigger asChild>
-                <Button>
+                <Button className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold">
                     <Plus className="mr-2 h-4 w-4" />
-                    New Auction
+                    Novo
                 </Button>
             </DialogTrigger>
             <DialogContent className="sm:max-w-[425px]">

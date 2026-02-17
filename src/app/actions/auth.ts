@@ -1,64 +1,48 @@
 'use server'
 
-import { cookies } from 'next/headers'
-import { redirect } from 'next/navigation'
 import { prisma } from '@/lib/prisma'
-import { z } from 'zod'
-
-const LoginSchema = z.object({
-    email: z.string().min(1, 'Email/Username is required'),
-    password: z.string().min(1, 'Password is required'),
-})
-
-export async function login(prevState: any, formData: FormData) {
-    const result = LoginSchema.safeParse(Object.fromEntries(formData))
-
-    if (!result.success) {
-        return {
-            errors: result.error.flatten().fieldErrors,
-            message: 'Invalid fields',
-        }
-    }
-
-    const { email, password } = result.data
-
-    try {
-        const user = await prisma.user.findUnique({
-            where: { email },
-        })
-
-        if (!user || user.password !== password) {
-            // Note: In production, compare hashed passwords!
-            return {
-                message: 'Invalid credentials',
-            }
-        }
-
-        if (user.role !== 'ADMIN') {
-            return {
-                message: 'Access denied. Admin only.',
-            }
-        }
-
-        // Set session cookie
-        // In a real app, use a signed JWT or session ID
-        (await cookies()).set('admin_session', user.id, {
-            httpOnly: true,
-            secure: process.env.NODE_ENV === 'production',
-            maxAge: 60 * 60 * 24 * 7, // 1 week
-            path: '/',
-        })
-    } catch (error) {
-        console.error('Login error:', error)
-        return {
-            message: 'Database error',
-        }
-    }
-
-    redirect('/admin/dashboard')
-}
+import { redirect } from 'next/navigation'
+// import { hash } from 'bcrypt' // In a real app. For this demo, plain text or simple hash.
 
 export async function logout() {
-    (await cookies()).delete('admin_session')
+    // In a real app: cookies().delete('session')
     redirect('/admin/login')
+}
+
+export async function registerUser(formData: FormData) {
+    const name = formData.get('name') as string
+    const email = formData.get('email') as string
+    const password = formData.get('password') as string
+    const type = formData.get('type') as string
+    const document = formData.get('document') as string
+    const phone = formData.get('phone') as string
+
+    try {
+        // Check if exists
+        const existing = await prisma.user.findUnique({ where: { email } })
+        if (existing) {
+            return { success: false, message: 'Email já cadastrado.' }
+        }
+
+        // Basic user creation
+        await prisma.user.create({
+            data: {
+                name,
+                email,
+                password: password, // TODO: Hash this
+                type,
+                cpf: type === 'PF' ? document : undefined,
+                cnpj: type === 'PJ' ? document : undefined,
+                phone,
+                role: 'USER',
+                status: 'ACTIVE' // Auto-activate for demo
+            } as any
+        })
+
+
+        return { success: true, message: 'Conta criada com sucesso!' }
+    } catch (e) {
+        console.error(e)
+        return { success: false, message: 'Erro ao criar conta.' }
+    }
 }
