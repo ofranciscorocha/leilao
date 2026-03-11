@@ -83,6 +83,13 @@ export function CreateLotDialog({ auctions }: { auctions: AuctionSelect[] }) {
                     </div>
 
                     <div className="grid grid-cols-4 items-center gap-4">
+                        <Label htmlFor="lotNumber" className="text-right">
+                            Lot #
+                        </Label>
+                        <Input id="lotNumber" name="lotNumber" type="number" className="col-span-3" placeholder="e.g. 1" required />
+                    </div>
+
+                    <div className="grid grid-cols-4 items-center gap-4">
                         <Label htmlFor="title" className="text-right">
                             Title
                         </Label>

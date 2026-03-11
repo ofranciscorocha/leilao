@@ -43,6 +43,7 @@ const sidebarItems = [
         items: [
             { href: '/admin/auctions', label: 'Leilões', icon: Gavel },
             { href: '/admin/lots', label: 'Consulta de Lotes', icon: Search },
+            { href: '/admin/condicionais', label: 'Lotes em Condicional', icon: FileText },
             { href: '/admin/qualifications', label: 'Consulta de Habilitações', icon: Lock },
             { href: '/admin/bidders', label: 'Arrematantes', icon: Users },
             { href: '/admin/comitentes', label: 'Comitentes', icon: Building2 },
@@ -65,14 +66,9 @@ const sidebarItems = [
         ]
     },
     {
-        group: 'EMAILS MARKETING',
+        group: 'SITE & MARKETING',
         items: [
             { href: '/admin/contacts', label: 'Contatos', icon: Users },
-        ]
-    },
-    {
-        group: 'CONTEÚDO DO SITE',
-        items: [
             { href: '/admin/banners', label: 'Banners', icon: ImageIcon },
             { href: '/admin/pages', label: 'Páginas', icon: FileText },
         ]
@@ -81,25 +77,29 @@ const sidebarItems = [
         group: '',
         items: [
             { href: '/admin/help', label: 'Ajuda ao Arrematante', icon: HelpCircle },
+            { href: '/admin/settings', label: 'Configurações', icon: Globe },
         ]
     }
-
 ]
 
 export function Sidebar() {
     const pathname = usePathname()
 
     return (
-        <div className="flex h-full w-64 flex-col bg-white text-gray-700 border-r shadow-sm">
-            <div className="flex h-16 items-center border-b px-6 bg-gray-50/50">
-                <span className="text-xl font-bold tracking-tight text-gray-900">Pátio Rocha Leilões</span>
+        <div className="flex h-full w-64 flex-col bg-sidebar text-sidebar-foreground border-r border-sidebar-border shadow-xl">
+            <div className="flex h-20 items-center px-6 border-b border-sidebar-border bg-black/10">
+                <div className="flex flex-col">
+                    <span className="text-xl font-bold tracking-tighter text-sidebar-primary">Pátio Rocha</span>
+                    <span className="text-[10px] tracking-[0.2em] font-medium text-sidebar-foreground/50 uppercase">Sistema de Gestão</span>
+                </div>
             </div>
-            <div className="flex-1 overflow-y-auto py-4">
-                <nav className="space-y-6 px-4">
+            
+            <div className="flex-1 overflow-y-auto py-6 custom-scrollbar">
+                <nav className="space-y-8 px-4">
                     {sidebarItems.map((group, i) => (
-                        <div key={i}>
+                        <div key={i} className="space-y-2">
                             {group.group && (
-                                <h4 className="mb-2 px-2 text-xs font-semibold uppercase tracking-wider text-gray-400">
+                                <h4 className="px-3 text-[10px] font-bold uppercase tracking-[0.15em] text-sidebar-foreground/30">
                                     {group.group}
                                 </h4>
                             )}
@@ -111,13 +111,16 @@ export function Sidebar() {
                                             key={item.href}
                                             href={item.href}
                                             className={cn(
-                                                "flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium transition-colors",
+                                                "group flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-all duration-200",
                                                 isActive
-                                                    ? "bg-blue-50 text-blue-700"
-                                                    : "text-gray-600 hover:bg-gray-100 hover:text-gray-900"
+                                                    ? "bg-sidebar-primary text-sidebar-primary-foreground shadow-md shadow-black/20"
+                                                    : "text-sidebar-foreground/70 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
                                             )}
                                         >
-                                            <item.icon className={cn("h-4 w-4", isActive ? "text-blue-700" : "text-gray-500")} />
+                                            <item.icon className={cn(
+                                                "h-4 w-4 transition-transform duration-200 group-hover:scale-110", 
+                                                isActive ? "text-sidebar-primary-foreground" : "text-sidebar-foreground/40"
+                                            )} />
                                             {item.label}
                                         </Link>
                                     )
@@ -127,11 +130,15 @@ export function Sidebar() {
                     ))}
                 </nav>
             </div>
-            <div className="border-t p-4">
+
+            <div className="p-4 border-t border-sidebar-border bg-black/10">
                 <form action={logout}>
-                    <Button variant="outline" className="w-full justify-start gap-2 text-red-600 hover:text-red-700 hover:bg-red-50 border-red-100">
+                    <Button 
+                        variant="ghost" 
+                        className="w-full justify-start gap-3 text-sidebar-foreground/60 hover:text-red-400 hover:bg-red-400/10 transition-colors"
+                    >
                         <LogOut className="h-4 w-4" />
-                        Sair
+                        <span className="text-sm font-semibold">Sair do Painel</span>
                     </Button>
                 </form>
             </div>

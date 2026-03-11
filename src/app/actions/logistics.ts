@@ -46,7 +46,6 @@ export async function createVehicleEntry(formData: FormData) {
             await tx.vehicleInspection.create({
                 data: {
                     lotId: lot.id,
-                    status: 'PENDING' // Custom field or just exist
                 }
             })
         })

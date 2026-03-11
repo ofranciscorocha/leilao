@@ -78,7 +78,7 @@ export default async function Home() {
           )}
 
           <div className="mt-8 text-center">
-            <Button variant="outline" size="lg" className="border-blue-600 text-blue-600 hover:bg-blue-50">Ver Todos os Lotes</Button>
+            <Button variant="outline" size="lg" className="border-secondary text-primary font-bold hover:bg-secondary/10 px-12 rounded-full">Ver Todos os Lotes</Button>
           </div>
         </section>
 
@@ -86,19 +86,19 @@ export default async function Home() {
         <AppDownloadBanner />
 
         {/* AGENDA DE LEILÕES */}
-        <section className="container py-16 bg-white">
+        <section className="container py-24 bg-white">
           <SectionHeader title="Agenda de Leilões" subtitle="Próximos eventos confirmados" icon={CalendarDays} />
 
           {/* Tabs */}
-          <div className="flex border-b border-gray-200 mb-8 overflow-x-auto">
-            <div className="flex space-x-8 min-w-max">
-              <button className="py-4 px-1 border-b-2 border-blue-600 font-bold text-blue-600 text-sm uppercase tracking-wide">
+          <div className="flex border-b border-gray-100 mb-12 overflow-x-auto no-scrollbar">
+            <div className="flex space-x-12 min-w-max">
+              <button className="py-5 px-2 border-b-2 border-secondary font-black text-primary text-xs uppercase tracking-[0.2em] italic">
                 Leilões Abertos ({auctions.length})
               </button>
-              <button className="py-4 px-1 border-b-2 border-transparent font-medium text-gray-500 hover:text-gray-700 text-sm uppercase tracking-wide">
+              <button className="py-5 px-2 border-b-2 border-transparent font-bold text-muted-foreground hover:text-primary text-xs uppercase tracking-[0.2em] transition-colors">
                 Próximos Leilões
               </button>
-              <button className="py-4 px-1 border-b-2 border-transparent font-medium text-gray-500 hover:text-gray-700 text-sm uppercase tracking-wide">
+              <button className="py-5 px-2 border-b-2 border-transparent font-bold text-muted-foreground hover:text-primary text-xs uppercase tracking-[0.2em] transition-colors">
                 Encerrados
               </button>
             </div>
@@ -153,13 +153,15 @@ export default async function Home() {
 
 function CategoryItem({ icon: Icon, label, count, active }: { icon: any, label: string, count: number, active?: boolean }) {
   return (
-    <div className={`group flex flex-col items-center gap-3 cursor-pointer transition-colors ${active ? 'text-blue-700' : 'text-gray-500 hover:text-blue-700'}`}>
-      <div className={`p-4 rounded-full transition-all ${active ? 'bg-blue-100' : 'bg-gray-100 group-hover:bg-blue-50'}`}>
-        <Icon className="h-6 w-6" />
+    <div className={`group flex flex-col items-center gap-4 cursor-pointer transition-all duration-300 ${active ? 'scale-110' : 'hover:-translate-y-1'}`}>
+      <div className={`p-5 rounded-2xl transition-all duration-500 shadow-sm ${active ? 'bg-primary text-secondary shadow-lg shadow-secondary/20' : 'bg-white border border-gray-100 text-primary/40 group-hover:bg-primary/5 group-hover:text-primary group-hover:border-primary/10'}`}>
+        <Icon className="h-7 w-7" />
       </div>
-      <div className="flex items-center gap-2">
-        <span className="font-bold text-sm uppercase tracking-wide">{label}</span>
-        {/* <span className="text-[10px] bg-gray-200 px-1.5 rounded-full">{count}</span> */}
+      <div className="flex flex-col items-center">
+        <span className={`font-black text-[10px] uppercase tracking-[0.2em] transition-colors ${active ? 'text-primary' : 'text-gray-400 group-hover:text-primary'}`}>
+          {label}
+        </span>
+        {active && <div className="h-1 w-4 bg-secondary mt-1 rounded-full animate-in slide-in-from-left duration-500" />}
       </div>
     </div>
   )
@@ -167,15 +169,15 @@ function CategoryItem({ icon: Icon, label, count, active }: { icon: any, label: 
 
 function SectionHeader({ title, subtitle, icon: Icon }: { title: string, subtitle: string, icon?: any }) {
   return (
-    <div className="mb-8 flex items-end justify-between border-b pb-4">
-      <div>
-        <h2 className="text-2xl font-bold text-gray-900 flex items-center gap-2">
-          {Icon && <Icon className="h-6 w-6 text-blue-600" />}
+    <div className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-gray-100 pb-6">
+      <div className="space-y-1">
+        <h2 className="text-3xl font-black text-primary flex items-center gap-3 tracking-tighter uppercase italic">
+          {Icon && <Icon className="h-8 w-8 text-secondary" />}
           {title}
         </h2>
-        <p className="text-gray-500 mt-1">{subtitle}</p>
+        <p className="text-muted-foreground font-medium italic">{subtitle}</p>
       </div>
-      {/* Controls could go here */}
+      <div className="h-1.5 w-24 bg-gradient-to-r from-secondary to-transparent rounded-full hidden md:block" />
     </div>
   )
 }

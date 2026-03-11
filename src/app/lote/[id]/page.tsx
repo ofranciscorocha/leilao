@@ -8,8 +8,10 @@ import { Badge } from '@/components/ui/badge'
 import { Separator } from '@/components/ui/separator'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { MapPin, Calendar, Truck, AlertTriangle, CheckCircle, Info } from 'lucide-react'
+import { MapPin, Calendar, Truck, AlertTriangle, CheckCircle, Info, Gavel } from 'lucide-react'
 import { formatCurrency, formatDate } from '@/lib/utils'
+import Link from 'next/link'
+import { Button } from '@/components/ui/button'
 
 export default async function LotDetailsPage(props: { params: Promise<{ id: string }> }) {
     const params = await props.params
@@ -32,195 +34,246 @@ export default async function LotDetailsPage(props: { params: Promise<{ id: stri
     if (images.length === 0) images.push('/placeholder-car.jpg')
 
     return (
-        <div className="min-h-screen flex flex-col font-sans bg-gray-50 text-gray-900">
+        <div className="min-h-screen flex flex-col font-sans bg-[#f8f9fa] text-gray-900">
             <Navbar />
 
-            <main className="flex-1 container py-8">
-                {/* Breadcrumbs / Header */}
-                <div className="mb-6">
-                    <div className="flex items-center gap-2 text-sm text-gray-500 mb-2">
-                        <span>Home</span> / <span>Leilões</span> / <span>{lot.auction.title}</span> / <span className="text-gray-900 font-bold">Lote {lot.lotNumber}</span>
+            <main className="flex-1 container py-12">
+                {/* Premium Breadcrumbs */}
+                <div className="mb-10 animate-in fade-in slide-in-from-left duration-500">
+                    <div className="flex items-center gap-3 text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground">
+                        <Link href="/" className="hover:text-primary transition-colors">Home</Link>
+                        <span className="text-secondary">/</span>
+                        <Link href="/auctions" className="hover:text-primary transition-colors">Leilões</Link>
+                        <span className="text-secondary">/</span>
+                        <Link href={`/auctions/${lot.auctionId}`} className="hover:text-primary transition-colors truncate max-w-[200px]">{lot.auction.title}</Link>
+                        <span className="text-secondary">/</span>
+                        <span className="text-primary italic">Lote {lot.lotNumber || lot.id.slice(-3)}</span>
                     </div>
                 </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                    {/* Left Column: Gallery & Details (66%) */}
-                    <div className="lg:col-span-2 space-y-8">
-                        {/* Title & Gallery */}
-                        <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-                            <div className="flex justify-between items-start mb-4">
-                                <div>
-                                    <Badge className="mb-2 text-sm px-3 py-1 bg-gray-900 border-0">Lote {lot.lotNumber}</Badge>
-                                    <h1 className="text-3xl font-extrabold text-gray-900">{lot.title}</h1>
-                                    <p className="text-gray-500">{lot.category} • {lot.year || 'N/A'}</p>
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                    {/* Left Column: Gallery & Details (60%) */}
+                    <div className="lg:col-span-8 space-y-12">
+                        {/* Title & Gallery Section */}
+                        <div className="bg-white p-8 lg:p-12 rounded-[3rem] shadow-2xl shadow-primary/5 border border-white relative overflow-hidden">
+                            <div className="absolute top-0 right-0 w-32 h-32 bg-secondary/5 blur-3xl rounded-full" />
+                            
+                            <div className="flex flex-col md:flex-row justify-between items-start gap-6 mb-10">
+                                <div className="space-y-4">
+                                    <div className="flex items-center gap-4">
+                                        <Badge className="bg-primary text-secondary font-black px-4 py-1.5 rounded-xl border-none shadow-lg shadow-primary/10 uppercase tracking-widest text-[10px] italic">
+                                            Lote {lot.lotNumber || lot.id.slice(-3)}
+                                        </Badge>
+                                        <div className="flex items-center gap-1.5 text-green-600 font-bold text-[10px] uppercase tracking-widest">
+                                            <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                                            Disponível para Lances
+                                        </div>
+                                    </div>
+                                    <h1 className="text-4xl lg:text-5xl font-black text-primary leading-none tracking-tighter uppercase italic">
+                                        {lot.title}
+                                    </h1>
+                                    <div className="flex items-center gap-6 text-xs font-bold text-muted-foreground uppercase tracking-widest">
+                                        <span className="flex items-center gap-2">
+                                            <Gavel className="w-4 h-4 text-secondary" />
+                                            {lot.category}
+                                        </span>
+                                        <span className="flex items-center gap-2">
+                                            <Calendar className="w-4 h-4 text-secondary" />
+                                            Ano: {lot.year || "N/A"}
+                                        </span>
+                                    </div>
                                 </div>
-                                <div className="text-right">
-                                    <StatusBadge status={lot.status} />
-                                </div>
+                                <StatusBadge status={lot.status} />
                             </div>
 
-                            <LotGallery images={images} title={lot.title} />
+                            <div className="rounded-[2.5rem] overflow-hidden border-8 border-gray-50 shadow-inner bg-gray-50">
+                                <LotGallery images={images} title={lot.title} />
+                            </div>
                         </div>
 
-                        {/* Detailed Tabs */}
-                        <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-                            <Tabs defaultValue="details">
-                                <TabsList className="w-full justify-start border-b rounded-none h-auto p-0 bg-transparent gap-6">
-                                    <TabsTrigger value="details" className="data-[state=active]:bg-transparent data-[state=active]:shadow-none data-[state=active]:border-b-2 data-[state=active]:border-blue-600 rounded-none pb-3 px-0 font-bold text-gray-500 data-[state=active]:text-blue-600">Detalhes do Bem</TabsTrigger>
-                                    <TabsTrigger value="inspection" className="data-[state=active]:bg-transparent data-[state=active]:shadow-none data-[state=active]:border-b-2 data-[state=active]:border-blue-600 rounded-none pb-3 px-0 font-bold text-gray-500 data-[state=active]:text-blue-600">Laudo de Vistoria</TabsTrigger>
-                                    <TabsTrigger value="logistics" className="data-[state=active]:bg-transparent data-[state=active]:shadow-none data-[state=active]:border-b-2 data-[state=active]:border-blue-600 rounded-none pb-3 px-0 font-bold text-gray-500 data-[state=active]:text-blue-600">Retirada & Pátio</TabsTrigger>
+                        {/* Technical Information Tabs */}
+                        <div className="bg-white p-8 lg:p-12 rounded-[3rem] shadow-2xl shadow-primary/5 border border-white">
+                            <Tabs defaultValue="details" className="space-y-10">
+                                <TabsList className="w-full justify-start gap-10 bg-transparent border-b border-gray-100 rounded-none h-auto p-0">
+                                    {['details', 'inspection', 'logistics'].map((tab) => (
+                                        <TabsTrigger 
+                                            key={tab}
+                                            value={tab} 
+                                            className="data-[state=active]:bg-transparent data-[state=active]:shadow-none data-[state=active]:border-b-4 data-[state=active]:border-secondary rounded-none pb-4 px-0 font-black text-[10px] uppercase tracking-[0.2em] text-muted-foreground data-[state=active]:text-primary transition-all"
+                                        >
+                                            {tab === 'details' ? 'Descrição Técnica' : tab === 'inspection' ? 'Laudo Certificado' : 'Logística & Pátio'}
+                                        </TabsTrigger>
+                                    ))}
                                 </TabsList>
 
-                                <TabsContent value="details" className="pt-6 space-y-4">
-                                    <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
-                                        <DetailItem label="Marca/Modelo" value={lot.model || lot.title} />
-                                        <DetailItem label="Ano/Modelo" value={lot.year || '-'} />
-                                        <DetailItem label="Cor" value={lot.color || '-'} />
+                                <TabsContent value="details" className="space-y-12 animate-in fade-in duration-500">
+                                    <div className="grid grid-cols-2 md:grid-cols-3 gap-10">
+                                        <DetailItem label="Marca / Modelo" value={lot.model || lot.title} />
+                                        <DetailItem label="Ano / Modelo" value={lot.year || '-'} />
+                                        <DetailItem label="Cor Predominante" value={lot.color || '-'} />
                                         <DetailItem label="Combustível" value={lot.fuel || '-'} />
-                                        <DetailItem label="Placa" value={lot.plate || 'XXX-****'} />
-                                        <DetailItem label="Chassi" value={lot.chassis ? '***' + lot.chassis.slice(-4) : '***'} />
+                                        <DetailItem label="Placa Final" value={lot.plate || 'XXX-****'} />
+                                        <DetailItem label="Identificação Chassi" value={lot.chassis ? '***' + lot.chassis.slice(-4) : '***'} />
                                     </div>
-                                    <Separator />
-                                    <div>
-                                        <h3 className="font-bold mb-2">Descrição Completa</h3>
-                                        <div className="prose prose-sm max-w-none text-gray-600">
-                                            {lot.description || 'Sem descrição detalhada.'}
+                                    <div className="p-8 bg-gray-50 rounded-[2rem] border border-gray-100 italic relative">
+                                        <Info className="absolute top-6 right-6 w-10 h-10 text-primary opacity-5 pointer-events-none" />
+                                        <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-primary mb-4">Informações Complementares</h3>
+                                        <div className="text-sm font-medium text-muted-foreground leading-relaxed whitespace-pre-wrap">
+                                            {lot.description || 'A descrição detalhada deste ativo está em processo de revisão técnica e será disponibilizada em breve.'}
                                         </div>
                                     </div>
                                 </TabsContent>
 
-                                <TabsContent value="inspection" className="pt-6">
+                                <TabsContent value="inspection" className="animate-in fade-in duration-500">
                                     {lot.inspection ? (
-                                        <div className="space-y-6">
-                                            <div className="grid grid-cols-2 gap-4">
-                                                <InspectionItem label="Motor" value={lot.inspection.engineStatus} />
-                                                <InspectionItem label="Câmbio" value={lot.inspection.transmission} />
-                                                <InspectionItem label="Lataria" value={lot.inspection.bodywork} />
-                                                <InspectionItem label="Estofamento" value={lot.inspection.upholstery} />
+                                        <div className="space-y-10">
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
+                                                <InspectionItem label="Estado do Motor" value={lot.inspection.engineStatus} />
+                                                <InspectionItem label="Sist. de Transmissão" value={lot.inspection.transmission} />
+                                                <InspectionItem label="Condição da Lataria" value={lot.inspection.bodywork} />
+                                                <InspectionItem label="Conservação Interna" value={lot.inspection.upholstery} />
                                             </div>
                                             {lot.inspection.notes && (
-                                                <div className="bg-yellow-50 border border-yellow-200 p-4 rounded-lg">
-                                                    <h4 className="font-bold text-yellow-800 flex items-center gap-2 mb-2">
-                                                        <AlertTriangle className="h-4 w-4" /> Observações do Vistoriador
-                                                    </h4>
-                                                    <p className="text-sm text-yellow-700">{lot.inspection.notes}</p>
+                                                <div className="bg-amber-50/50 border border-amber-100 p-8 rounded-[2rem] flex gap-6">
+                                                    <AlertTriangle className="h-8 w-8 text-amber-600 shrink-0" />
+                                                    <div className="space-y-2">
+                                                        <h4 className="text-[10px] font-black uppercase tracking-widest text-amber-800">Notas de Vistoria</h4>
+                                                        <p className="text-sm font-medium text-amber-900 leading-relaxed italic">{lot.inspection.notes}</p>
+                                                    </div>
                                                 </div>
                                             )}
                                         </div>
                                     ) : (
-                                        <div className="text-center py-8 text-gray-500">
-                                            <Info className="h-8 w-8 mx-auto mb-2 opacity-50" />
-                                            <p>Vistoria não disponível para este lote.</p>
+                                        <div className="text-center py-20 bg-gray-50 rounded-[2.5rem] border border-dashed border-gray-200">
+                                            <Gavel className="h-12 w-12 mx-auto mb-4 text-gray-200" />
+                                            <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Vistoria Certificada Indisponível</p>
                                         </div>
                                     )}
                                 </TabsContent>
 
-                                <TabsContent value="logistics" className="pt-6">
+                                <TabsContent value="logistics" className="space-y-8 animate-in fade-in duration-500">
                                     {lot.logistics ? (
-                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                            <Card>
-                                                <CardHeader><CardTitle className="text-base">Localização no Pátio</CardTitle></CardHeader>
-                                                <CardContent>
-                                                    <div className="flex items-center gap-3">
-                                                        <MapPin className="h-5 w-5 text-blue-600" />
-                                                        <div>
-                                                            <p className="font-bold">{lot.logistics.storageLocation || 'Não informado'}</p>
-                                                            <p className="text-xs text-gray-500">Setor de Armazenamento</p>
-                                                        </div>
+                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                            <div className="bg-primary/[0.02] p-8 rounded-[2rem] border border-primary/5 space-y-4">
+                                                <div className="flex items-center gap-4">
+                                                    <div className="h-12 w-12 bg-white rounded-2xl shadow-xl shadow-primary/5 flex items-center justify-center border border-gray-50">
+                                                        <MapPin className="h-6 w-6 text-secondary" />
                                                     </div>
-                                                </CardContent>
-                                            </Card>
-                                            <Card>
-                                                <CardHeader><CardTitle className="text-base">Chaves & Manuais</CardTitle></CardHeader>
-                                                <CardContent className="space-y-2">
-                                                    <div className="flex items-center justify-between">
-                                                        <span className="text-sm">Chave no local?</span>
-                                                        {lot.logistics.hasKeys ? <CheckCircle className="h-4 w-4 text-green-600" /> : <span className="text-red-500 text-sm font-bold">Não</span>}
+                                                    <div>
+                                                        <p className="text-[9px] font-black uppercase tracking-widest text-muted-foreground mb-1">Localização Operacional</p>
+                                                        <p className="font-black text-primary uppercase italic">{lot.logistics.storageLocation || 'A definir'}</p>
                                                     </div>
-                                                    <div className="flex items-center justify-between">
-                                                        <span className="text-sm">Manual presente?</span>
-                                                        {lot.logistics.hasManual ? <CheckCircle className="h-4 w-4 text-green-600" /> : <span className="text-red-500 text-sm font-bold">Não</span>}
+                                                </div>
+                                            </div>
+                                            <div className="bg-primary text-white p-8 rounded-[2rem] shadow-2xl shadow-primary/20 space-y-6 relative overflow-hidden">
+                                                <div className="absolute top-0 right-0 w-32 h-32 bg-secondary/10 blur-3xl rounded-full" />
+                                                <h4 className="text-[10px] font-black uppercase tracking-widest text-secondary">Acessórios Coletados</h4>
+                                                <div className="space-y-4">
+                                                    <div className="flex items-center justify-between text-sm font-bold">
+                                                        <span className="opacity-60">Chaves de Contato?</span>
+                                                        {lot.logistics.hasKeys ? <CheckCircle className="h-5 w-5 text-secondary" /> : <span className="text-secondary italic">Pendente</span>}
                                                     </div>
-                                                </CardContent>
-                                            </Card>
+                                                    <div className="flex items-center justify-between text-sm font-bold">
+                                                        <span className="opacity-60">Manuais Originais?</span>
+                                                        {lot.logistics.hasManual ? <CheckCircle className="h-5 w-5 text-secondary" /> : <span className="text-secondary italic">Pendente</span>}
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     ) : (
-                                        <p className="text-gray-500">Informações logísticas não disponíveis.</p>
+                                        <p className="text-[10px] font-black text-muted-foreground uppercase tracking-widest italic text-center py-10 bg-gray-50 rounded-[2rem]">Dados logísticos aguardando atualização do pátio.</p>
                                     )}
-                                    <div className="mt-6 bg-blue-50 p-4 rounded border border-blue-100 text-sm text-blue-800 flex gap-2">
-                                        <Truck className="h-5 w-5 flex-shrink-0" />
-                                        <p>A retirada do bem deve ser agendada após a confirmação do pagamento. O arrematante é responsável pelo transporte.</p>
+                                    <div className="bg-secondary/10 p-6 rounded-2xl border border-secondary/20 flex gap-4 items-center">
+                                        <Truck className="h-6 w-6 text-primary shrink-0" />
+                                        <p className="text-[10px] font-bold text-primary uppercase tracking-tight leading-normal">
+                                            Informação: Retirada via cegonha ou individual requer agendamento prévio com 48h de antecedência via central de logística.
+                                        </p>
                                     </div>
                                 </TabsContent>
                             </Tabs>
                         </div>
                     </div>
 
-                    {/* Right Column: Bidding Interface (33%) */}
-                    <div className="space-y-6">
-                        <div className="sticky top-24">
-                            <Card className="border-2 border-blue-600 shadow-lg overflow-hidden">
-                                <div className="bg-blue-600 text-white p-3 text-center font-bold uppercase tracking-wider text-sm">
-                                    Painel de Lances
+                    {/* Right Column: Bidding Interface (40%) */}
+                    <div className="lg:col-span-4">
+                        <div className="sticky top-24 space-y-8 animate-in fade-in slide-in-from-right duration-700">
+                            <Card className="border-none bg-[#080c17] text-white shadow-[0_32px_64px_-16px_rgba(8,12,23,0.3)] rounded-[3rem] overflow-hidden">
+                                <div className="bg-secondary text-primary px-8 py-3 text-center font-black uppercase italic tracking-[0.2em] text-[10px]">
+                                    Auditório Virtual Oficial
                                 </div>
-                                <CardContent className="p-6 space-y-6">
-                                    <div className="text-center">
-                                        <p className="text-sm font-bold text-gray-500 bg-gray-100 inline-block px-3 py-1 rounded-full mb-3">Lance Atual</p>
-                                        <div className="text-4xl font-black text-gray-900 tracking-tight">
-                                            {formatCurrency(lot.currentBid || lot.startingPrice)}
+                                <CardContent className="p-10 space-y-10 relative">
+                                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-secondary/5 blur-[80px] rounded-full pointer-events-none" />
+                                    
+                                    <div className="text-center relative z-10">
+                                        <span className="text-[10px] font-black uppercase tracking-[0.3em] text-white/40 mb-6 block">Lance Atualizado</span>
+                                        <div className="flex items-baseline justify-center gap-2">
+                                            <span className="text-secondary font-black text-xl italic uppercase tracking-tighter">R$</span>
+                                            <div className="text-6xl font-black tracking-tighter italic text-white leading-none">
+                                                {formatCurrency(lot.currentBid || lot.startingPrice).split('R$')[1]}
+                                            </div>
                                         </div>
-                                        <p className="text-xs text-gray-400 mt-1">
-                                            {lot.auction.status === 'OPEN' ? 'Leilão em andamento' : 'Aguardando abertura'}
-                                        </p>
-                                    </div>
-
-                                    <Separator />
-
-                                    <div className="space-y-2">
-                                        <div className="flex justify-between text-sm">
-                                            <span>Lance Inicial:</span>
-                                            <span className="font-medium text-gray-900">{formatCurrency(lot.startingPrice)}</span>
-                                        </div>
-                                        <div className="flex justify-between text-sm">
-                                            <span>Incremento Mínimo:</span>
-                                            <span className="font-medium text-green-600">+{formatCurrency(lot.incrementAmount)}</span>
+                                        <div className="mt-8 flex items-center justify-center gap-2">
+                                            <div className="w-2 h-2 rounded-full bg-green-500 animate-ping" />
+                                            <span className="text-[10px] font-black text-green-400 uppercase tracking-widest">Leilão ao Vivo</span>
                                         </div>
                                     </div>
 
-                                    {/* Bid Form Component */}
-                                    {lot.status === 'OPEN' || lot.status === 'PENDING' ? (
-                                        <div className="pt-2">
+                                    <div className="grid grid-cols-2 gap-4 py-8 border-y border-white/10 relative z-10">
+                                        <div className="space-y-1">
+                                            <span className="text-[9px] font-bold text-white/30 uppercase tracking-widest block">Início</span>
+                                            <span className="font-black text-white italic tracking-tighter text-sm">{formatCurrency(lot.startingPrice)}</span>
+                                        </div>
+                                        <div className="space-y-1 text-right">
+                                            <span className="text-[9px] font-bold text-white/30 uppercase tracking-widest block">Incremento</span>
+                                            <span className="font-black text-secondary italic tracking-tighter text-sm">+{formatCurrency(lot.incrementAmount)}</span>
+                                        </div>
+                                    </div>
+
+                                    <div className="relative z-10">
+                                        {lot.status === 'OPEN' || lot.status === 'PENDING' ? (
                                             <BidForm
                                                 lotId={lot.id}
                                                 currentPrice={lot.currentBid || lot.startingPrice}
                                                 increment={lot.incrementAmount}
                                             />
-                                        </div>
-                                    ) : (
-                                        <div className="bg-gray-100 p-4 rounded text-center text-gray-500 font-bold">
-                                            Lote Encerrado
-                                        </div>
-                                    )}
-
-                                    <div className="text-xs text-center text-gray-400">
-                                        Ao dar um lance, você concorda com os <a href="#" className="underline">Termos de Uso</a>.
+                                        ) : (
+                                            <div className="bg-white/5 border border-white/5 p-6 rounded-2xl text-center text-white/40 font-black uppercase italic tracking-widest text-xs">
+                                                Lote Arrematado / Encerrado
+                                            </div>
+                                        )}
                                     </div>
+
+                                    <p className="text-[9px] text-center text-white/20 font-bold uppercase tracking-widest leading-relaxed relative z-10 italic">
+                                        * Lances confirmados não podem ser cancelados conforme edital Art. 42
+                                    </p>
                                 </CardContent>
                             </Card>
 
-                            <Card className="mt-4">
-                                <CardHeader className="pb-2"><CardTitle className="text-sm">Informações do Leilão</CardTitle></CardHeader>
-                                <CardContent className="text-sm space-y-3">
-                                    <div className="flex items-center gap-2">
-                                        <Calendar className="h-4 w-4 text-gray-400" />
-                                        <span>Encerramento: <strong>{formatDate(lot.auction.endDate)}</strong></span>
+                            <div className="bg-white p-8 rounded-[2.5rem] shadow-2xl shadow-primary/5 border border-white space-y-6">
+                                <h4 className="text-[10px] font-black uppercase tracking-widest text-primary flex items-center gap-3">
+                                    <Info className="w-4 h-4 text-secondary" />
+                                    Cronograma do Leilão
+                                </h4>
+                                <div className="space-y-4 text-sm font-bold text-muted-foreground">
+                                    <div className="flex items-center justify-between pb-4 border-b border-gray-50">
+                                        <div className="flex items-center gap-3">
+                                            <Calendar className="h-4 w-4 text-secondary" />
+                                            <span className="text-[11px] uppercase tracking-tighter">Data Final</span>
+                                        </div>
+                                        <span className="text-primary italic tracking-tighter">{formatDate(lot.auction.endDate)}</span>
                                     </div>
-                                    <div className="flex items-center gap-2">
-                                        <MapPin className="h-4 w-4 text-gray-400" />
-                                        <span>Local: <strong>São Paulo - SP</strong></span>
+                                    <div className="flex items-center justify-between pb-4 border-b border-gray-50">
+                                        <div className="flex items-center gap-3">
+                                            <MapPin className="h-4 w-4 text-secondary" />
+                                            <span className="text-[11px] uppercase tracking-tighter">Cidade Base</span>
+                                        </div>
+                                        <span className="text-primary italic tracking-tighter">S. J. Rio Preto - SP</span>
                                     </div>
-                                </CardContent>
-                            </Card>
+                                </div>
+                                <Button variant="link" className="w-full text-[10px] font-black text-secondary uppercase tracking-widest">
+                                    BAIXAR EDITAL COMPLETO (PDF)
+                                </Button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -233,43 +286,50 @@ export default async function LotDetailsPage(props: { params: Promise<{ id: stri
 
 function DetailItem({ label, value }: { label: string, value: string }) {
     return (
-        <div>
-            <span className="block text-xs text-gray-500 uppercase font-bold tracking-wider mb-1">{label}</span>
-            <span className="block font-medium text-gray-900">{value}</span>
+        <div className="space-y-2 group">
+            <span className="block text-[9px] font-black text-muted-foreground uppercase tracking-[0.2em] group-hover:text-secondary transition-colors">{label}</span>
+            <span className="block font-black text-primary uppercase italic tracking-tighter text-base">{value}</span>
         </div>
     )
 }
 
 function InspectionItem({ label, value }: { label: string, value?: string | null }) {
-    // Map existing values to readable text
     const mapValue = (v?: string | null) => {
-        if (!v) return '-'
+        if (!v) return 'Não Avaliado'
         const map: any = {
-            'WORKING': 'Funcionando', 'DAMAGED': 'Danificado', 'MISSING': 'Faltando', 'SEIZED': 'Travado',
-            'MANUAL': 'Manual', 'AUTOMATIC': 'Automático', 'BROKEN': 'Quebrado',
-            'GOOD': 'Bom', 'SCRATCHED': 'Riscos Leves', 'DENTED': 'Amassado', 'TOTAL_LOSS': 'Perda Total'
+            'WORKING': 'Em Funcionamento', 'DAMAGED': 'Avariado', 'MISSING': 'Ausente', 'SEIZED': 'Bloqueado',
+            'MANUAL': 'Mecânico', 'AUTOMATIC': 'Hidramático', 'BROKEN': 'Inoperante',
+            'GOOD': 'Estado de Novo', 'SCRATCHED': 'Avarias Leves', 'DENTED': 'Estrutural Comp.', 'TOTAL_LOSS': 'Sinistro Total'
         }
         return map[v] || v
     }
 
     return (
-        <div className="flex justify-between border-b border-gray-100 pb-2">
-            <span className="text-gray-600">{label}</span>
-            <span className="font-bold text-gray-900">{mapValue(value)}</span>
+        <div className="flex justify-between items-center py-4 border-b border-gray-100 group">
+            <span className="text-xs font-bold text-muted-foreground uppercase tracking-widest group-hover:text-primary transition-colors">{label}</span>
+            <span className="font-black text-primary uppercase italic tracking-tighter text-sm group-hover:text-secondary transition-colors">{mapValue(value)}</span>
         </div>
     )
 }
 
 function StatusBadge({ status }: { status: string }) {
     const styles: any = {
-        'OPEN': 'bg-green-100 text-green-800',
-        'PENDING': 'bg-blue-100 text-blue-800',
-        'SOLD': 'bg-gray-100 text-gray-800',
-        'CLOSED': 'bg-red-100 text-red-800'
+        'OPEN': 'bg-green-500 text-white shadow-lg shadow-green-500/20',
+        'PENDING': 'bg-secondary text-primary shadow-lg shadow-secondary/20',
+        'SOLD': 'bg-primary text-white',
+        'CLOSED': 'bg-red-500 text-white shadow-lg shadow-red-500/20'
+    }
+    const labels: any = {
+        'OPEN': 'Em Aberto',
+        'PENDING': 'Aguardando',
+        'SOLD': 'Arrematado',
+        'CLOSED': 'Encerrado'
     }
     return (
-        <span className={`px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide ${styles[status] || 'bg-gray-100'}`}>
-            {status === 'OPEN' ? 'Em disputa' : status}
+        <span className={`px-6 py-2 rounded-full text-[10px] font-black uppercase tracking-[0.2em] italic ${styles[status] || 'bg-gray-100'}`}>
+            {labels[status] || status}
         </span>
     )
 }
+
+

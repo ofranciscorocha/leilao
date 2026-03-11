@@ -5,6 +5,7 @@ import { revalidatePath } from 'next/cache'
 import { z } from 'zod'
 
 const LotSchema = z.object({
+    lotNumber: z.coerce.number().min(1, 'Lot number is required'),
     title: z.string().min(1, 'Title is required'),
     description: z.string().optional(),
     startingPrice: z.coerce.number().min(0, 'Price must be positive'),
@@ -15,6 +16,7 @@ const LotSchema = z.object({
 
 export async function createLot(prevState: any, formData: FormData) {
     const result = LotSchema.safeParse({
+        lotNumber: formData.get('lotNumber'),
         title: formData.get('title'),
         description: formData.get('description'),
         startingPrice: formData.get('startingPrice'),
