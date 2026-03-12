@@ -1,0 +1,137 @@
+﻿cmd : Retrieving projectÔÇª
+No linha:1 caractere:1
++ cmd /c "vercel --prod --yes" > vercel_build4.txt 2>&1
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Retrieving projectÔÇª:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Deploying ofranciscorochas-projects/leilao-patio-rocha
+Uploading [--------------------] (0.0B/26.1KB)
+Uploading [======--------------] (8.1KB/26.1KB)
+Uploading [===================-] (25.3KB/26.1KB)
+Uploading [===================-] (26.1KB/26.1KB)
+Uploading [====================] (26.1KB/26.1KB)
+Inspect: https://vercel.com/ofranciscorochas-projects/leilao-patio-rocha/7ZvNGfZsj2z1ZfmKCjaY1KcXqUo4 [6s]
+Production: https://leilao-patio-rocha-7c33tb783-ofranciscorochas-projects.vercel.app [6s]
+Building...
+Building...
+Building: Running build in Washington, D.C., USA (East) ÔÇô iad1
+Building: Build machine configuration: 2 cores, 8 GB
+Building: Retrieving list of deployment files...
+Building: Previous build caches not available.
+Building: Downloading 324 deployment files...
+Building: Running "vercel build"
+Building: Vercel CLI 50.31.0
+Building: Installing dependencies...
+Building: npm warn deprecated node-domexception@1.0.0: Use your platform's native DOMException instead
+Building: > leilao-patio-rocha@0.1.0 postinstall
+Building: > prisma generate
+Building: Environment variables loaded from .env
+Building: Prisma schema loaded from prisma/schema.prisma
+Building: Ô£ö Generated Prisma Client (v5.22.0) to ./node_modules/@prisma/client in 404ms
+Building: Start by importing your Prisma Client (See: https://pris.ly/d/importing-client)
+Building: Tip: Want to react to database changes in your app as they happen? Discover how with Pulse: 
+https://pris.ly/tip-1-pulse
+Building: added 796 packages in 27s
+Building: 241 packages are looking for funding
+Building: run `npm fund` for details
+Building: Detected Next.js version: 16.1.6
+Building: Running "npm run build"
+Building: > leilao-patio-rocha@0.1.0 build
+Building: > next build
+Building: Attention: Next.js now collects completely anonymous telemetry regarding usage.
+Building: This information is used to shape Next.js' roadmap and prioritize features.
+Building: You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by 
+visiting the following URL:
+Building: https://nextjs.org/telemetry
+Building: Ôû▓ Next.js 16.1.6 (Turbopack)
+Building: - Environments: .env
+Building: Creating an optimized production build ...
+Building: Ô£ô Compiled successfully in 22.5s
+Building: Skipping validation of types
+Building: Collecting page data using 1 worker ...
+Building: Generating static pages using 1 worker (0/65) ...
+Building: Error occurred prerendering page "/admin/auctions". Read more: 
+https://nextjs.org/docs/messages/prerender-error
+Building: Error [PrismaClientInitializationError]:
+Building: Invalid `prisma.auction.findMany()` invocation:
+Building: The provided database string is invalid. Error parsing connection string: invalid port number in database 
+URL. Please refer to the documentation in https://www.prisma.io/docs/reference/database-reference/connection-urls for 
+constructing a correct connection string. In some cases, certain characters must be escaped. Please check the string 
+for any illegal characters.
+Building: at async m (.next/server/chunks/ssr/[root-of-the-server]__761b12e5._.js:1:4492) {
+Building: clientVersion: '5.22.0',
+Building: errorCode: undefined,
+Building: digest: '3687159740'
+Building: }
+Building: Export encountered an error on /admin/auctions/page: /admin/auctions, exiting the build.
+Building: Ô¿» Next.js build worker exited with code: 1 and signal: null
+Building: Error: Command "npm run build" exited with 1
+2026-03-11T16:24:36.920Z  Running build in Washington, D.C., USA (East) ÔÇô iad1
+2026-03-11T16:24:36.921Z  Build machine configuration: 2 cores, 8 GB
+2026-03-11T16:24:37.118Z  Retrieving list of deployment files...
+2026-03-11T16:24:37.122Z  Previous build caches not available.
+2026-03-11T16:24:37.727Z  Downloading 324 deployment files...
+2026-03-11T16:24:39.441Z  Running "vercel build"
+2026-03-11T16:24:40.214Z  Vercel CLI 50.31.0
+2026-03-11T16:24:40.922Z  Installing dependencies...
+2026-03-11T16:24:46.310Z  npm warn deprecated node-domexception@1.0.0: Use your platform's native DOMException instead
+2026-03-11T16:25:06.212Z  
+2026-03-11T16:25:06.214Z  > leilao-patio-rocha@0.1.0 postinstall
+2026-03-11T16:25:06.214Z  > prisma generate
+2026-03-11T16:25:06.214Z  
+2026-03-11T16:25:06.641Z  Environment variables loaded from .env
+2026-03-11T16:25:06.644Z  Prisma schema loaded from prisma/schema.prisma
+2026-03-11T16:25:07.565Z  
+2026-03-11T16:25:07.566Z  Ô£ö Generated Prisma Client (v5.22.0) to ./node_modules/@prisma/client in 404ms
+2026-03-11T16:25:07.566Z  
+2026-03-11T16:25:07.566Z  Start by importing your Prisma Client (See: https://pris.ly/d/importing-client)
+2026-03-11T16:25:07.566Z  
+2026-03-11T16:25:07.567Z  Tip: Want to react to database changes in your app as they happen? Discover how with Pulse: 
+https://pris.ly/tip-1-pulse
+2026-03-11T16:25:07.567Z  
+2026-03-11T16:25:07.783Z  
+2026-03-11T16:25:07.784Z  added 796 packages in 27s
+2026-03-11T16:25:07.784Z  
+2026-03-11T16:25:07.784Z  241 packages are looking for funding
+2026-03-11T16:25:07.784Z  run `npm fund` for details
+2026-03-11T16:25:07.838Z  Detected Next.js version: 16.1.6
+2026-03-11T16:25:07.849Z  Running "npm run build"
+2026-03-11T16:25:07.952Z  
+2026-03-11T16:25:07.953Z  > leilao-patio-rocha@0.1.0 build
+2026-03-11T16:25:07.953Z  > next build
+2026-03-11T16:25:07.953Z  
+2026-03-11T16:25:08.726Z  Attention: Next.js now collects completely anonymous telemetry regarding usage.
+2026-03-11T16:25:08.726Z  This information is used to shape Next.js' roadmap and prioritize features.
+2026-03-11T16:25:08.727Z  You can learn more, including how to opt-out if you'd not like to participate in this 
+anonymous program, by visiting the following URL:
+2026-03-11T16:25:08.727Z  https://nextjs.org/telemetry
+2026-03-11T16:25:08.727Z  
+2026-03-11T16:25:08.743Z  Ôû▓ Next.js 16.1.6 (Turbopack)
+2026-03-11T16:25:08.744Z  - Environments: .env
+2026-03-11T16:25:08.744Z  
+2026-03-11T16:25:08.794Z  Creating an optimized production build ...
+2026-03-11T16:25:31.817Z  Ô£ô Compiled successfully in 22.5s
+2026-03-11T16:25:31.819Z  Skipping validation of types
+2026-03-11T16:25:32.039Z  Collecting page data using 1 worker ...
+2026-03-11T16:25:33.395Z  Generating static pages using 1 worker (0/65) ...
+2026-03-11T16:25:33.670Z  Error occurred prerendering page "/admin/auctions". Read more: 
+https://nextjs.org/docs/messages/prerender-error
+2026-03-11T16:25:33.674Z  Error [PrismaClientInitializationError]:
+2026-03-11T16:25:33.674Z  Invalid `prisma.auction.findMany()` invocation:
+2026-03-11T16:25:33.674Z  
+2026-03-11T16:25:33.674Z  
+2026-03-11T16:25:33.675Z  The provided database string is invalid. Error parsing connection string: invalid port 
+number in database URL. Please refer to the documentation in 
+https://www.prisma.io/docs/reference/database-reference/connection-urls for constructing a correct connection string. 
+In some cases, certain characters must be escaped. Please check the string for any illegal characters.
+2026-03-11T16:25:33.675Z  at async m (.next/server/chunks/ssr/[root-of-the-server]__761b12e5._.js:1:4492) {
+2026-03-11T16:25:33.675Z  clientVersion: '5.22.0',
+2026-03-11T16:25:33.675Z  errorCode: undefined,
+2026-03-11T16:25:33.675Z  digest: '3687159740'
+2026-03-11T16:25:33.675Z  }
+2026-03-11T16:25:33.675Z  Export encountered an error on /admin/auctions/page: /admin/auctions, exiting the build.
+2026-03-11T16:25:33.700Z  Ô¿» Next.js build worker exited with code: 1 and signal: null
+2026-03-11T16:25:33.752Z  Error: Command "npm run build" exited with 1
+https://leilao-patio-rocha-7c33tb783-ofranciscorochas-projects.vercel.app
+

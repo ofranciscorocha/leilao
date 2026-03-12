@@ -1,0 +1,9 @@
+﻿node.exe : error: unknown option '--no-turbopack'
+No D:\PROJETOS-ROCHINHA\PROJETOS\leilao-patio-rocha\node_modules\.bin\next.ps1:24 caractere:5
++     & "node$exe"  "$basedir/../next/dist/bin/next" $args
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (error: unknown option '--no-turbopack':String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+(Did you mean --turbopack?)
+

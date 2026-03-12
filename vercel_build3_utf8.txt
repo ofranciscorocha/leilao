@@ -1,0 +1,132 @@
+﻿cmd : Retrieving projectÔÇª
+No linha:1 caractere:1
++ cmd /c "vercel --prod --yes" > vercel_build3.txt 2>&1
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Retrieving projectÔÇª:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Deploying ofranciscorochas-projects/leilao-patio-rocha
+Uploading [--------------------] (0.0B/144.5KB)
+Uploading [=======-------------] (51.3KB/144.5KB)
+Uploading [==========----------] (72.5KB/144.5KB)
+Uploading [================----] (118.2KB/144.5KB)
+Uploading [====================] (144.5KB/144.5KB)
+Inspect: https://vercel.com/ofranciscorochas-projects/leilao-patio-rocha/6k7FLaJkESCA5gswM3UMSaPE9d2z [5s]
+Production: https://leilao-patio-rocha-i0d3wit76-ofranciscorochas-projects.vercel.app [5s]
+Building...
+Building: Running build in Washington, D.C., USA (East) ÔÇô iad1
+Building: Build machine configuration: 2 cores, 8 GB
+Building: Retrieving list of deployment files...
+Building: Previous build caches not available.
+Building: Downloading 322 deployment files...
+Building: Downloading 322 deployment files...
+Building: Running "vercel build"
+Building: Vercel CLI 50.31.0
+Building: Installing dependencies...
+Building: npm warn deprecated node-domexception@1.0.0: Use your platform's native DOMException instead
+Building: added 796 packages in 24s
+Building: 241 packages are looking for funding
+Building: run `npm fund` for details
+Building: Detected Next.js version: 16.1.6
+Building: Running "npm run build"
+Building: > leilao-patio-rocha@0.1.0 build
+Building: > next build
+Building: Attention: Next.js now collects completely anonymous telemetry regarding usage.
+Building: This information is used to shape Next.js' roadmap and prioritize features.
+Building: You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by 
+visiting the following URL:
+Building: https://nextjs.org/telemetry
+Building: Ôû▓ Next.js 16.1.6 (Turbopack)
+Building: - Environments: .env
+Building: Creating an optimized production build ...
+Building: Ô£ô Compiled successfully in 21.7s
+Building: Skipping validation of types
+Building: Collecting page data using 1 worker ...
+Building: Prisma has detected that this project was built on Vercel, which caches dependencies. This leads to an 
+outdated Prisma Client because Prisma's auto-generation isn't triggered. To fix this, make sure to run the `prisma 
+generate` command during the build process.
+Building: Learn how: https://pris.ly/d/vercel-build
+Building: Error [PrismaClientInitializationError]: Prisma has detected that this project was built on Vercel, which 
+caches dependencies. This leads to an outdated Prisma Client because Prisma's auto-generation isn't triggered. To fix 
+this, make sure to run the `prisma generate` command during the build process.
+Building: Learn how: https://pris.ly/d/vercel-build
+Building: at module evaluation (.next/server/chunks/[root-of-the-server]__0f4daaf4._.js:1:1160)
+Building: at instantiateModule (.next/server/chunks/[turbopack]_runtime.js:740:9)
+Building: at getOrInstantiateModuleFromParent (.next/server/chunks/[turbopack]_runtime.js:763:12)
+Building: at Context.esmImport [as i] (.next/server/chunks/[turbopack]_runtime.js:228:20)
+Building: at module evaluation (.next/server/chunks/[root-of-the-server]__0f4daaf4._.js:1:1495)
+Building: at instantiateModule (.next/server/chunks/[turbopack]_runtime.js:740:9)
+Building: at instantiateRuntimeModule (.next/server/chunks/[turbopack]_runtime.js:768:12)
+Building: at getOrInstantiateRuntimeModule (.next/server/chunks/[turbopack]_runtime.js:781:12) {
+Building: clientVersion: '5.22.0',
+Building: errorCode: undefined
+Building: }
+Building: > Build error occurred
+Building: Error: Failed to collect page data for /api/crm/ai-qualify
+Building: at ignore-listed frames {
+Building: type: 'Error'
+Building: }
+Building: Error: Command "npm run build" exited with 1
+2026-03-11T16:10:15.145Z  Running build in Washington, D.C., USA (East) ÔÇô iad1
+2026-03-11T16:10:15.146Z  Build machine configuration: 2 cores, 8 GB
+2026-03-11T16:10:15.259Z  Retrieving list of deployment files...
+2026-03-11T16:10:15.262Z  Previous build caches not available.
+2026-03-11T16:10:15.979Z  Downloading 322 deployment files...
+2026-03-11T16:10:18.234Z  Running "vercel build"
+2026-03-11T16:10:18.902Z  Vercel CLI 50.31.0
+2026-03-11T16:10:19.239Z  Installing dependencies...
+2026-03-11T16:10:25.850Z  npm warn deprecated node-domexception@1.0.0: Use your platform's native DOMException instead
+2026-03-11T16:10:43.241Z  
+2026-03-11T16:10:43.242Z  added 796 packages in 24s
+2026-03-11T16:10:43.242Z  
+2026-03-11T16:10:43.242Z  241 packages are looking for funding
+2026-03-11T16:10:43.242Z  run `npm fund` for details
+2026-03-11T16:10:43.290Z  Detected Next.js version: 16.1.6
+2026-03-11T16:10:43.299Z  Running "npm run build"
+2026-03-11T16:10:43.399Z  
+2026-03-11T16:10:43.399Z  > leilao-patio-rocha@0.1.0 build
+2026-03-11T16:10:43.399Z  > next build
+2026-03-11T16:10:43.400Z  
+2026-03-11T16:10:44.264Z  Attention: Next.js now collects completely anonymous telemetry regarding usage.
+2026-03-11T16:10:44.264Z  This information is used to shape Next.js' roadmap and prioritize features.
+2026-03-11T16:10:44.265Z  You can learn more, including how to opt-out if you'd not like to participate in this 
+anonymous program, by visiting the following URL:
+2026-03-11T16:10:44.265Z  https://nextjs.org/telemetry
+2026-03-11T16:10:44.265Z  
+2026-03-11T16:10:44.276Z  Ôû▓ Next.js 16.1.6 (Turbopack)
+2026-03-11T16:10:44.276Z  - Environments: .env
+2026-03-11T16:10:44.277Z  
+2026-03-11T16:10:44.325Z  Creating an optimized production build ...
+2026-03-11T16:11:06.547Z  Ô£ô Compiled successfully in 21.7s
+2026-03-11T16:11:06.549Z  Skipping validation of types
+2026-03-11T16:11:06.739Z  Collecting page data using 1 worker ...
+2026-03-11T16:11:07.530Z  Prisma has detected that this project was built on Vercel, which caches dependencies. This 
+leads to an outdated Prisma Client because Prisma's auto-generation isn't triggered. To fix this, make sure to run the 
+`prisma generate` command during the build process.
+2026-03-11T16:11:07.531Z  
+2026-03-11T16:11:07.531Z  Learn how: https://pris.ly/d/vercel-build
+2026-03-11T16:11:07.534Z  Error [PrismaClientInitializationError]: Prisma has detected that this project was built on 
+Vercel, which caches dependencies. This leads to an outdated Prisma Client because Prisma's auto-generation isn't 
+triggered. To fix this, make sure to run the `prisma generate` command during the build process.
+2026-03-11T16:11:07.534Z  
+2026-03-11T16:11:07.535Z  Learn how: https://pris.ly/d/vercel-build
+2026-03-11T16:11:07.535Z  at module evaluation (.next/server/chunks/[root-of-the-server]__0f4daaf4._.js:1:1160)
+2026-03-11T16:11:07.535Z  at instantiateModule (.next/server/chunks/[turbopack]_runtime.js:740:9)
+2026-03-11T16:11:07.535Z  at getOrInstantiateModuleFromParent (.next/server/chunks/[turbopack]_runtime.js:763:12)
+2026-03-11T16:11:07.535Z  at Context.esmImport [as i] (.next/server/chunks/[turbopack]_runtime.js:228:20)
+2026-03-11T16:11:07.535Z  at module evaluation (.next/server/chunks/[root-of-the-server]__0f4daaf4._.js:1:1495)
+2026-03-11T16:11:07.535Z  at instantiateModule (.next/server/chunks/[turbopack]_runtime.js:740:9)
+2026-03-11T16:11:07.535Z  at instantiateRuntimeModule (.next/server/chunks/[turbopack]_runtime.js:768:12)
+2026-03-11T16:11:07.536Z  at getOrInstantiateRuntimeModule (.next/server/chunks/[turbopack]_runtime.js:781:12) {
+2026-03-11T16:11:07.536Z  clientVersion: '5.22.0',
+2026-03-11T16:11:07.536Z  errorCode: undefined
+2026-03-11T16:11:07.536Z  }
+2026-03-11T16:11:08.041Z  
+2026-03-11T16:11:08.042Z  > Build error occurred
+2026-03-11T16:11:08.044Z  Error: Failed to collect page data for /api/crm/ai-qualify
+2026-03-11T16:11:08.044Z  at ignore-listed frames {
+2026-03-11T16:11:08.044Z  type: 'Error'
+2026-03-11T16:11:08.045Z  }
+2026-03-11T16:11:08.097Z  Error: Command "npm run build" exited with 1
+https://leilao-patio-rocha-i0d3wit76-ofranciscorochas-projects.vercel.app
+

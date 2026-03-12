@@ -1,0 +1,13 @@
+Environment variables loaded from .env
+Prisma schema loaded from prisma\schema.prisma
+Datasource "db": SQLite database "dev.db" at "file:./dev.db"
+Error: P1012
+
+error: Native type Text is not supported for sqlite connector.
+  -->  schema.prisma:165
+   | 
+164 |   leiloeiroMatricula String?
+165 |   editalRegras       String? @db.Text
+   | 
+
+

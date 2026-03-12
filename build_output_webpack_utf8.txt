@@ -1,0 +1,20 @@
+﻿Ôû▓ Next.js 16.1.6 (webpack)
+- Environments: .env
+
+node.exe : ÔÜá The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: 
+https://nextjs.org/docs/messages/middleware-to-proxy
+No D:\PROJETOS-ROCHINHA\PROJETOS\leilao-patio-rocha\node_modules\.bin\next.ps1:24 caractere:5
++     & "node$exe"  "$basedir/../next/dist/bin/next" $args
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (ÔÜá The "middle...leware-to-proxy:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  Creating an optimized production build ...
+Failed to compile.
+
+Error: EISDIR: illegal operation on a directory, readlink 
+'D:\PROJETOS-ROCHINHA\PROJETOS\leilao-patio-rocha\src\app\favicon.ico'
+
+
+> Build failed because of webpack errors
+

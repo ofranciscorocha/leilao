@@ -1,0 +1,50 @@
+﻿node.exe : Retrieving projectÔÇª
+No C:\Users\Francisco\AppData\Roaming\npm\vercel.ps1:24 caractere:5
++     & "node$exe"  "$basedir/node_modules/vercel/dist/vc.js" $args
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Retrieving projectÔÇª:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Fetching deployments in ofranciscorochas-projects
+> Deployments for ofranciscorochas-projects/leilao-patio-rocha [257ms]
+
+  Age     Project                                          Deployment                                                  
+                  Status      Environment     Duration     Username            
+  11h     ofranciscorochas-projects/leilao-patio-rocha     
+https://leilao-patio-rocha-jhmmlzst2-ofranciscorochas-projects.vercel.app     ÔùÅ Error     Production      54s        
+  ofranciscorocha     
+  12h     ofranciscorochas-projects/leilao-patio-rocha     
+https://leilao-patio-rocha-chioywrby-ofranciscorochas-projects.vercel.app     ÔùÅ Error     Production      46s        
+  ofranciscorocha     
+  1d      ofranciscorochas-projects/leilao-patio-rocha     
+https://leilao-patio-rocha-jdi7hjkid-ofranciscorochas-projects.vercel.app     ÔùÅ Error     Production      47s        
+  ofranciscorocha     
+  1d      ofranciscorochas-projects/leilao-patio-rocha     
+https://leilao-patio-rocha-r9str0nc5-ofranciscorochas-projects.vercel.app     ÔùÅ Error     Production      47s        
+  ofranciscorocha     
+  1d      ofranciscorochas-projects/leilao-patio-rocha     
+https://leilao-patio-rocha-bhze9pg35-ofranciscorochas-projects.vercel.app     ÔùÅ Error     Production      50s        
+  ofranciscorocha     
+  2d      ofranciscorochas-projects/leilao-patio-rocha     
+https://leilao-patio-rocha-j61yljukd-ofranciscorochas-projects.vercel.app     ÔùÅ Error     Production      58s        
+  ofranciscorocha     
+  2d      ofranciscorochas-projects/leilao-patio-rocha     
+https://leilao-patio-rocha-bm9tc2wvy-ofranciscorochas-projects.vercel.app     ÔùÅ Error     Production      53s        
+  ofranciscorocha     
+https://leilao-patio-rocha-jhmmlzst2-ofranciscorochas-projects.vercel.app
+https://leilao-patio-rocha-chioywrby-ofranciscorochas-projects.vercel.app
+https://leilao-patio-rocha-jdi7hjkid-ofranciscorochas-projects.vercel.app
+https://leilao-patio-rocha-r9str0nc5-ofranciscorochas-projects.vercel.app
+https://leilao-patio-rocha-bhze9pg35-ofranciscorochas-projects.vercel.app
+https://leilao-patio-rocha-j61yljukd-ofranciscorochas-projects.vercel.app
+https://leilao-patio-rocha-bm9tc2wvy-ofranciscorochas-projects.vercel.app
+https://leilao-patio-rocha-8gng13wfp-ofranciscorochas-projects.vercel.app
+https://leilao-patio-rocha-4f3gq7kwd-ofranciscorochas-projects.vercel.app
+  2d      ofranciscorochas-projects/leilao-patio-rocha     
+https://leilao-patio-rocha-8gng13wfp-ofranciscorochas-projects.vercel.app     ÔùÅ Error     Production      51s        
+  ofranciscorocha     
+  2d      ofranciscorochas-projects/leilao-patio-rocha     
+https://leilao-patio-rocha-4f3gq7kwd-ofranciscorochas-projects.vercel.app     ÔùÅ Error     Production      49s        
+  ofranciscorocha     
+
+

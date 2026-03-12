@@ -1,0 +1,35 @@
+﻿Ôû▓ Next.js 16.1.6 (Turbopack)
+- Environments: .env
+
+node.exe : ÔÜá The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: 
+https://nextjs.org/docs/messages/middleware-to-proxy
+No D:\PROJETOS-ROCHINHA\PROJETOS\leilao-patio-rocha\node_modules\.bin\next.ps1:24 caractere:5
++     & "node$exe"  "$basedir/../next/dist/bin/next" $args
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (ÔÜá The "middle...leware-to-proxy:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  Creating an optimized production build ...
+
+-----
+[1m[31mFATAL[39m[0m: An unexpected Turbopack error occurred. A panic log has been written to 
+C:\Users\FRANCI~1\AppData\Local\Temp\next-panic-856cd252fecccc400be9e49c7b9628d.log.
+
+To help make Turbopack better, report this error by clicking here: https://github.com/vercel/next.js/discussions/new?ca
+tegory=turbopack-error-report&title=Turbopack%20Error%3A%20failed%20to%20create%20junction%20point%20to%20..%2F..%2F..%
+2Fnode_modules%2F%40prisma%2Fclient&body=Turbopack%20version%3A%20%6023c46498%60%0ANext.js%20version%3A%20%600.0.0%60%0
+A%0AError%20message%3A%0A%60%60%60%0ATurbopack%20Error%3A%20failed%20to%20create%20junction%20point%20to%20..%2F..%2F..
+%2Fnode_modules%2F%40prisma%2Fclient%0A%60%60%60&labels=Turbopack,Turbopack%20Panic%20Backtrace
+-----
+
+
+> Build error occurred
+Error [TurbopackInternalError]: failed to create junction point to ../../../node_modules/@prisma/client
+
+Caused by:
+- Fun├º├úo incorreta. (os error 1)
+    at ignore-listed frames {
+  type: 'TurbopackInternalError',
+  location: undefined
+}
+

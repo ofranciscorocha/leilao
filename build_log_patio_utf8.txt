@@ -1,0 +1,24 @@
+﻿cmd : 
+'.\node_modules\.bin\next' 
+não é reconhecido como um 
+comando interno
+No linha:1 caractere:1
++ cmd /c 
+".\node_modules\.bin\next 
+build --no-lint 
+--no-type-check" > b ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~
+    + CategoryInfo           
+   : NotSpecified: ('.\node  
+  _modules...comando inter   
+ no:String) [], RemoteExc    
+eption
+    + FullyQualifiedErrorId  
+   : NativeCommandError
+ 
+ou externo, um programa 
+operável ou um arquivo em 
+lotes.
+

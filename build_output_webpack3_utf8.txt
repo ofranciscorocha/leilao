@@ -1,0 +1,18 @@
+﻿Ôû▓ Next.js 16.1.6 (webpack)
+- Environments: .env
+
+  Creating an optimized production build ...
+node.exe : Failed to compile.
+No D:\PROJETOS-ROCHINHA\PROJETOS\leilao-patio-rocha\node_modules\.bin\next.ps1:24 caractere:5
++     & "node$exe"  "$basedir/../next/dist/bin/next" $args
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Failed to compile.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Error: EISDIR: illegal operation on a directory, readlink 
+'D:\PROJETOS-ROCHINHA\PROJETOS\leilao-patio-rocha\src\app\auctions\[id]\live\page.tsx'
+
+
+> Build failed because of webpack errors
+

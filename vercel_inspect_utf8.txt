@@ -1,0 +1,33 @@
+﻿node.exe : Fetching deployment "leilao-patio-rocha-jhmmlzst2-ofranciscorochas-projects.vercel.app" in 
+ofranciscorochas-projects
+No C:\Users\Francisco\AppData\Roaming\npm\vercel.ps1:24 caractere:5
++     & "node$exe"  "$basedir/node_modules/vercel/dist/vc.js" $args
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Fetching deploy...rochas-projects:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+> Fetched deployment "leilao-patio-rocha-jhmmlzst2-ofranciscorochas-projects.vercel.app" in ofranciscorochas-projects 
+[477ms]
+
+  General
+
+    id		dpl_CPqCfmvGEKBqezwGASEhYXmWqcV5
+    name	leilao-patio-rocha
+    target	production
+    status	ÔùÅ Error
+    url		https://leilao-patio-rocha-jhmmlzst2-ofranciscorochas-projects.vercel.app
+    created	Wed Mar 11 2026 01:30:04 GMT-0300 (Hor├írio Padr├úo de Bras├¡lia) [11h ago]
+
+
+  Aliases
+
+    ÔòÂ https://leilao-patio-rocha-ofranciscorochas-projects.vercel.app
+    ÔòÂ https://leilao-patio-rocha-git-main-ofranciscorochas-projects.vercel.app
+    
+
+  Builds
+
+    ÔòÂ .        [0ms]
+    
+
+

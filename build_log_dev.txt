@@ -1,0 +1,24 @@
+
+> leilao-patio-rocha@0.1.0 build
+> next build
+
+▲ Next.js 16.1.6 (Turbopack)
+- Environments: .env
+
+⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+  Creating an optimized production build ...
+✓ Compiled successfully in 19.7s
+  Running TypeScript ...
+Failed to compile.
+
+./src/hooks/use-toast.ts:3:53
+Type error: Cannot find module '@/components/ui/toast' or its corresponding type declarations.
+
+[0m [90m 1 |[39m [36mimport[39m [33m*[39m [36mas[39m [33mReact[39m [36mfrom[39m [32m"react"[39m[33m;[39m
+ [90m 2 |[39m
+[31m[1m>[22m[39m[90m 3 |[39m [36mimport[39m type { [33mToastActionElement[39m[33m,[39m [33mToastProps[39m } [36mfrom[39m [32m"@/components/ui/toast"[39m[33m;[39m
+ [90m   |[39m                                                     [31m[1m^[22m[39m
+ [90m 4 |[39m
+ [90m 5 |[39m [36mconst[39m [33mTOAST_LIMIT[39m [33m=[39m [35m1[39m[33m;[39m
+ [90m 6 |[39m [36mconst[39m [33mTOAST_REMOVE_DELAY[39m [33m=[39m [35m1000000[39m[33m;[39m[0m
+Next.js build worker exited with code: 1 and signal: null
