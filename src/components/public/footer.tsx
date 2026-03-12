@@ -1,4 +1,4 @@
-export function Footer() {
+export async function Footer() {
     return (
         <footer className="bg-[#080c17] text-white pt-20 pb-10 border-t border-white/5 relative overflow-hidden">
             {/* Decorative element */}
@@ -102,5 +102,5 @@ export function Footer() {
 }
 
 import Link from 'next/link'
-import { Instagram, Facebook, Linkedin, MapPin, Mail, Phone } from 'lucide-react'
-import { Button } from '@/components/ui/button'
+import { Instagram, Facebook, Linkedin, MapPin, Mail, Phone } from "lucide-react"
+import { Button } from "@/components/ui/button"

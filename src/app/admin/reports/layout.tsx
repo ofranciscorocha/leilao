@@ -1,6 +1,6 @@
-import { Button } from '@/components/ui/button'
+import { Button } from "@/components/ui/button"
 import Link from 'next/link'
-import { FileBarChart, Users, DollarSign } from 'lucide-react'
+import { FileBarChart, Users, DollarSign } from "lucide-react"
 
 export default function ReportsLayout({ children }: { children: React.ReactNode }) {
     return (

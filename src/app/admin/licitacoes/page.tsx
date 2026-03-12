@@ -1,5 +1,5 @@
-import { getLicitacoes } from '@/app/actions/licitacoes'
-import LicitacoesClient from './LicitacoesClient'
+import { getLicitacoes } from "@/app/actions/licitacoes"
+import LicitacoesClient from "./licitacoesclient"
 
 export const dynamic = 'force-dynamic'
 

@@ -1,19 +1,19 @@
 'use client'
 
-import { useRouter, useSearchParams } from 'next/navigation'
-import { Input } from '@/components/ui/input'
-import { Button } from '@/components/ui/button'
+import { useRouter, useSearchParams } from "next/navigation"
+import { Input } from "@/components/ui/input"
+import { Button } from "@/components/ui/button"
 import {
     Select,
     SelectContent,
     SelectItem,
     SelectTrigger,
     SelectValue,
-} from '@/components/ui/select'
-import { Search } from 'lucide-react'
-import { useState, useTransition } from 'react'
+} from "@/components/ui/select"
+import { Search } from "lucide-react"
+import { useState, useTransition } from "react"
 
-export function AuctionFilters() {
+export async function AuctionFilters() {
     const router = useRouter()
     const searchParams = useSearchParams()
     const [isPending, startTransition] = useTransition()

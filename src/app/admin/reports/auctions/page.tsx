@@ -1,7 +1,7 @@
-import { prisma } from '@/lib/prisma'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
-import { formatCurrency, formatDate } from '@/lib/utils'
+import { prisma } from "@/lib/prisma"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
+import { formatCurrency, formatDate } from "@/lib/utils"
 
 export default async function AuctionReportsPage() {
     const closedAuctions = await prisma.auction.findMany({

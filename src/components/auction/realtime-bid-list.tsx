@@ -1,12 +1,12 @@
 'use client'
 
-import { useEffect, useState } from 'react'
-import { useRealtimeBids } from '@/hooks/use-realtime-bids'
+import { useEffect, useState } from "react"
+import { useRealtimeBids } from "@/hooks/use-realtime-bids"
 import { formatDistanceToNow } from 'date-fns'
 import { ptBR } from 'date-fns/locale'
-import { TrendingUp, Award } from 'lucide-react'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { ScrollArea } from '@/components/ui/scroll-area'
+import { TrendingUp, Award } from "lucide-react"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { ScrollArea } from "@/components/ui/scroll-area"
 
 interface RealtimeBidListProps {
   lotId: string

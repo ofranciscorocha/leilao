@@ -1,8 +1,8 @@
 'use client'
 
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
-import { cn } from '@/lib/utils'
+import { usePathname } from "next/navigation"
+import { cn } from "@/lib/utils"
 import {
     LayoutDashboard,
     AlertCircle,
@@ -21,9 +21,9 @@ import {
     HelpCircle,
     Image as ImageIcon,
     LogOut
-} from 'lucide-react'
-import { logout } from '@/app/actions/auth'
-import { Button } from '@/components/ui/button'
+} from "lucide-react"
+import { logout } from "@/app/actions/auth"
+import { Button } from "@/components/ui/button"
 
 const sidebarItems = [
     {
@@ -82,7 +82,7 @@ const sidebarItems = [
     }
 ]
 
-export function Sidebar() {
+export async function Sidebar() {
     const pathname = usePathname()
 
     return (

@@ -1,8 +1,8 @@
-import { prisma } from '@/lib/prisma'
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
-import { Badge } from '@/components/ui/badge'
-import { Button } from '@/components/ui/button'
-import { formatCurrency, formatDate } from '@/lib/utils'
+import { prisma } from "@/lib/prisma"
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button"
+import { formatCurrency, formatDate } from "@/lib/utils"
 import {
     Table,
     TableBody,
@@ -10,8 +10,8 @@ import {
     TableHead,
     TableHeader,
     TableRow,
-} from '@/components/ui/table'
-import { CheckCircle, XCircle, Clock, Eye } from 'lucide-react'
+} from "@/components/ui/table"
+import { CheckCircle, XCircle, Clock, Eye } from "lucide-react"
 import Link from 'next/link'
 
 export const revalidate = 0 // Disable cache for this page

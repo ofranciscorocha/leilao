@@ -1,7 +1,7 @@
 'use client'
 
-import { useState, useEffect } from 'react'
-import { useParams, useRouter } from 'next/navigation'
+import { useState, useEffect } from "react"
+import { useParams, useRouter } from "next/navigation"
 import Link from 'next/link'
 import {
   getVendaDireta,
@@ -9,7 +9,7 @@ import {
   updateVendaDiretaStatus,
   publishToSelect,
   unpublishFromSelect,
-} from '@/app/actions/vendaDireta'
+} from "@/app/actions/vendadireta"
 import {
   ArrowLeft,
   Car,
@@ -23,7 +23,7 @@ import {
   FileText,
   Image as ImageIcon,
   AlertCircle,
-} from 'lucide-react'
+} from "lucide-react"
 
 const STATUSES = ['EM_PREPARACAO', 'DISPONIVEL', 'RESERVADO', 'VENDIDO', 'RETIRADO']
 const STATUS_LABELS: Record<string, string> = {

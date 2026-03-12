@@ -1,7 +1,7 @@
 'use client'
 
-import { useState } from 'react'
-import { Edit2, Plus, Trash2, Eye, Copy, Mail } from 'lucide-react'
+import { useState } from "react"
+import { Edit2, Plus, Trash2, Eye, Copy, Mail } from "lucide-react"
 import Link from 'next/link'
 
 interface Template {

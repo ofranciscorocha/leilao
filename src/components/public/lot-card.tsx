@@ -1,11 +1,11 @@
 import Link from 'next/link'
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
-import { Badge } from '@/components/ui/badge'
-import { Button } from '@/components/ui/button'
-import { formatCurrency } from '@/lib/utils'
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button"
+import { formatCurrency } from "@/lib/utils"
 import { Lot } from '@prisma/client'
-import { BidForm } from './bid-form'
-import { Gavel, Clock } from 'lucide-react'
+import { BidForm } from "./bid-form"
+import { Gavel, Clock } from "lucide-react"
 
 interface LotCardProps {
     lot: any // Using any for flexibility with Prisma includes, but will handle properties safely

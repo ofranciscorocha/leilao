@@ -1,6 +1,6 @@
-import { Save, ArrowLeft, Building2, MapPin, UserSquare2, Percent } from 'lucide-react'
+import { Save, ArrowLeft, Building2, MapPin, UserSquare2, Percent } from "lucide-react"
 import Link from 'next/link'
-import { createComitente } from '@/app/actions/comitentes'
+import { createComitente } from "@/app/actions/comitentes"
 
 export default function CreateComitentePage() {
     return (

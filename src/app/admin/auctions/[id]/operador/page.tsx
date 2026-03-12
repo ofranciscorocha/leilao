@@ -1,7 +1,7 @@
-import { prisma } from '@/lib/prisma'
-import { notFound } from 'next/navigation'
+import { prisma } from "@/lib/prisma"
+import { notFound } from "next/navigation"
 import Link from 'next/link'
-import { ArrowLeft, Play, AlertCircle } from 'lucide-react'
+import { ArrowLeft, Play, AlertCircle } from "lucide-react"
 
 // Simulando dados baseados na screenshot
 export default async function OperatorPanelPage({ params }: { params: { id: string } }) {

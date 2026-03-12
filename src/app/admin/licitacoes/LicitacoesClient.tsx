@@ -1,12 +1,12 @@
 'use client'
 
-import { useState, useTransition } from 'react'
+import { useState, useTransition } from "react"
 import {
     FileSearch, Plus, Eye, Edit2, Trash2, ExternalLink,
     Search, Trophy, X, TrendingUp, FileText
-} from 'lucide-react'
-import { createLicitacao, updateLicitacao, deleteLicitacao } from '@/app/actions/licitacoes'
-import { useRouter } from 'next/navigation'
+} from "lucide-react"
+import { createLicitacao, updateLicitacao, deleteLicitacao } from "@/app/actions/licitacoes"
+import { useRouter } from "next/navigation"
 
 type Status = 'MONITORANDO' | 'PARTICIPANDO' | 'VENCEMOS' | 'PERDEMOS' | 'SUSPENSO' | 'CANCELADO'
 type Modalidade = 'PREGAO_ELETRONICO' | 'CONCORRENCIA' | 'TOMADA_PRECOS' | 'CONVITE' | 'LEILAO'

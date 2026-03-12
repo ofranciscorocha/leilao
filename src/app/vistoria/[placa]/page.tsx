@@ -1,6 +1,6 @@
-import { notFound } from 'next/navigation';
+import { notFound } from "next/navigation";
 import Link from 'next/link';
-import { PrintButton } from '@/components/vistoria/PrintButton';
+import { PrintButton } from "@/components/vistoria/printbutton";
 
 // This would come from DB in production
 const vistorias: Record<string, any> = {

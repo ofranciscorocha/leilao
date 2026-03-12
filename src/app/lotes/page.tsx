@@ -1,6 +1,6 @@
-import { Suspense } from 'react';
-import Navbar from "@/components/gleam/Navbar";
-import Footer from "@/components/gleam/Footer";
+import { Suspense } from "react";
+import Navbar from "@/components/gleam/navbar";
+import Footer from "@/components/gleam/footer";
 import { prisma } from "@/lib/prisma";
 import { Search, Filter, MapPin, Tag, ChevronDown, ChevronRight } from "lucide-react";
 import Link from "next/link";

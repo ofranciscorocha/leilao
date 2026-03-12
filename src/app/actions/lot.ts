@@ -1,8 +1,8 @@
 'use server'
 
-import { prisma } from '@/lib/prisma'
-import { revalidatePath } from 'next/cache'
-import { z } from 'zod'
+import { prisma } from "@/lib/prisma"
+import { revalidatePath } from "next/cache"
+import { z } from "zod"
 
 const LotSchema = z.object({
     lotNumber: z.coerce.number().min(1, 'Lot number is required'),

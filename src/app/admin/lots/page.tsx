@@ -1,7 +1,7 @@
-import { prisma } from '@/lib/prisma'
-import { Button } from '@/components/ui/button'
-import { Link } from 'lucide-react'
-import { formatCurrency, formatDate } from '@/lib/utils'
+import { prisma } from "@/lib/prisma"
+import { Button } from "@/components/ui/button"
+import { Link } from "lucide-react"
+import { formatCurrency, formatDate } from "@/lib/utils"
 import {
     Table,
     TableBody,
@@ -9,9 +9,9 @@ import {
     TableHead,
     TableHeader,
     TableRow,
-} from '@/components/ui/table'
-import { DeleteLotButton } from '@/components/admin/delete-lot-button'
-import { CreateLotDialog } from '@/components/admin/create-lot-dialog'
+} from "@/components/ui/table"
+import { DeleteLotButton } from "@/components/admin/delete-lot-button"
+import { CreateLotDialog } from "@/components/admin/create-lot-dialog"
 
 export default async function LotsPage() {
     const lots = await prisma.lot.findMany({

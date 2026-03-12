@@ -1,8 +1,8 @@
 'use server'
 
-import { prisma } from '@/lib/prisma'
-import { redirect } from 'next/navigation'
-import bcrypt from 'bcryptjs'
+import { prisma } from "@/lib/prisma"
+import { redirect } from "next/navigation"
+import bcrypt from "bcryptjs"
 
 export async function createArrematante(formData: FormData) {
     const type = formData.get('type') as string;

@@ -1,22 +1,22 @@
-import { Navbar } from '@/components/public/navbar'
-import { Footer } from '@/components/public/footer'
-import { prisma } from '@/lib/prisma'
-import { AuctionCard } from '@/components/public/auction-card'
-import { LotCard } from '@/components/public/lot-card'
-import { SearchBar } from '@/components/public/search-bar'
-import { AppDownloadBanner } from '@/components/public/app-download-banner'
-import { BannerCarousel } from '@/components/public/banner-carousel'
-import { getBanners } from '@/app/actions/cms'
-import { Button } from '@/components/ui/button'
-import { Home as HomeIcon, Car, Truck, Bike, Monitor, Watch, Gavel, CalendarDays } from 'lucide-react'
+import { Navbar } from "@/components/public/navbar"
+import { Footer } from "@/components/public/footer"
+import { prisma } from "@/lib/prisma"
+import { AuctionCard } from "@/components/public/auction-card"
+import { LotCard } from "@/components/public/lot-card"
+import { SearchBar } from "@/components/public/search-bar"
+import { AppDownloadBanner } from "@/components/public/app-download-banner"
+import { BannerCarousel } from "@/components/public/banner-carousel"
+import { getBanners } from "@/app/actions/cms"
+import { Button } from "@/components/ui/button"
+import { Home as HomeIcon, Car, Truck, Bike, Monitor, Watch, Gavel, CalendarDays } from "lucide-react"
 import Link from 'next/link'
 
 export const revalidate = 0 // Dynamic for now
 
 export default async function Home() {
-  let auctions = []
-  let featuredLots = []
-  let banners = []
+  let auctions: any[] = []
+  let featuredLots: any[] = []
+  let banners: any[] = []
   let dbError = false
 
   try {

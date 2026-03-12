@@ -1,12 +1,12 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from "react"
 import {
     Brain, Key, Save, CheckCircle, Eye, EyeOff, TestTube2,
     Zap, Settings, AlertCircle, Sparkles, Bot, Loader2
-} from 'lucide-react'
+} from "lucide-react"
 import Link from 'next/link'
-import { getSystemSettings, updateSystemSettings } from '@/app/actions/settings'
+import { getSystemSettings, updateSystemSettings } from "@/app/actions/settings"
 
 export default function AISettingsPage() {
     const [config, setConfig] = useState({

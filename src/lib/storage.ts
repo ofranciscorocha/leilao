@@ -1,6 +1,6 @@
 'use server'
 
-import { createServerAdminClient } from './supabase-server'
+import { createServerAdminClient } from "./supabase-server"
 
 export async function uploadImage(
   file: File,
@@ -88,7 +88,7 @@ export async function uploadMultipleImages(
 }
 
 // Helper to extract file path from Supabase URL
-export function getFilePathFromUrl(url: string, bucket: string = 'auction-images'): string | null {
+export async function getFilePathFromUrl(url: string, bucket: string = 'auction-images'): Promise<string | null> {
   try {
     const urlObj = new URL(url)
     const pathParts = urlObj.pathname.split('/')

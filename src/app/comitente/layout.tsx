@@ -1,8 +1,8 @@
-import { Navbar } from '@/components/public/navbar'
-import { Footer } from '@/components/public/footer'
+import { Navbar } from "@/components/public/navbar"
+import { Footer } from "@/components/public/footer"
 import Link from 'next/link'
-import { LayoutDashboard, Package, FileText, LogOut } from 'lucide-react'
-import { Button } from '@/components/ui/button'
+import { LayoutDashboard, Package, FileText, LogOut } from "lucide-react"
+import { Button } from "@/components/ui/button"
 
 export default function ComitenteLayout({
     children,

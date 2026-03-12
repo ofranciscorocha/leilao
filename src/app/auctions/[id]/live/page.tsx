@@ -1,8 +1,8 @@
-import { prisma } from '@/lib/prisma'
-import { notFound } from 'next/navigation'
+import { prisma } from "@/lib/prisma"
+import { notFound } from "next/navigation"
 import Link from 'next/link'
-import { ArrowLeft, Video, AlertCircle } from 'lucide-react'
-import { PublicLiveAuctionPanel } from '@/components/public/public-live-auction-panel'
+import { ArrowLeft, Video, AlertCircle } from "lucide-react"
+import { PublicLiveAuctionPanel } from "@/components/public/public-live-auction-panel"
 
 // This will be a public page to watch the live auction and place bids
 export default async function PublicLiveAuctionPage({ params }: { params: { id: string } }) {

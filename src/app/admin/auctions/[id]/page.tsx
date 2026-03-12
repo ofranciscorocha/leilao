@@ -1,12 +1,12 @@
-import { prisma } from '@/lib/prisma'
-import { notFound } from 'next/navigation'
+import { prisma } from "@/lib/prisma"
+import { notFound } from "next/navigation"
 import Link from 'next/link'
 import {
     Gavel, Settings, ArrowLeft, ArrowRight, Eye, Play, Mic,
     MonitorSmartphone, Package, FileText, UserCheck, Search,
     Download, MessageSquare, Image as ImageIcon, Map, Building2,
     Calendar, Watch, DollarSign, TrendingUp
-} from 'lucide-react'
+} from "lucide-react"
 
 // Array of statuses for the top progress bar
 const STATUSES = ['ATIVO', 'AO VIVO', 'LOTEAMENTO', 'VENDA DIRETA', 'EM BREVE', 'ENCERRADO', 'SUSPENSO', 'INATIVO'];

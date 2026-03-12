@@ -1,18 +1,18 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from "react"
 import { io } from 'socket.io-client'
-import { motion, AnimatePresence } from 'framer-motion' // Need to check if framer-motion is installed, if not will use standard CSS
-import { Badge } from '@/components/ui/badge'
-import { Card } from '@/components/ui/card'
-import { formatCurrency } from '@/lib/utils'
+import { motion, AnimatePresence } from "framer-motion" // Need to check if framer-motion is installed, if not will use standard CSS
+import { Badge } from "@/components/ui/badge"
+import { Card } from "@/components/ui/card"
+import { formatCurrency } from "@/lib/utils"
 
 interface AuditoriumViewProps {
     auctionId: string
     initialLot: any // detailed lot object
 }
 
-export function AuditoriumView({ auctionId, initialLot }: AuditoriumViewProps) {
+export async function AuditoriumView({ auctionId, initialLot }: AuditoriumViewProps) {
     const [currentLot, setCurrentLot] = useState(initialLot)
     const [currentBid, setCurrentBid] = useState(initialLot?.currentBid || initialLot?.startingPrice || 0)
     const [lastBidder, setLastBidder] = useState<string | null>(null)

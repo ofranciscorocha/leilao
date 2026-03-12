@@ -1,7 +1,7 @@
-import { Button } from '@/components/ui/button'
-import { Smartphone, Apple, Play } from 'lucide-react'
+import { Button } from "@/components/ui/button"
+import { Smartphone, Apple, Play } from "lucide-react"
 
-export function AppDownloadBanner() {
+export async function AppDownloadBanner() {
     return (
         <section className="bg-blue-900 text-white py-16 overflow-hidden relative">
             <div className="container relative z-10 flex flex-col md:flex-row items-center justify-between gap-12">

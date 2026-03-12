@@ -1,7 +1,7 @@
 'use client';
 import { Gavel, Mail, Phone, MapPin } from "lucide-react";
 import Link from "next/link";
-import { Logo } from "./Logo";
+import { Logo } from "./logo";
 
 const Footer = () => {
   return (

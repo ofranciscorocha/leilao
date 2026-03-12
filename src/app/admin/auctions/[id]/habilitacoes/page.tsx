@@ -1,8 +1,8 @@
-import { prisma } from '@/lib/prisma'
-import { notFound } from 'next/navigation'
+import { prisma } from "@/lib/prisma"
+import { notFound } from "next/navigation"
 import Link from 'next/link'
-import { ArrowLeft, UserCheck, Check, X, ShieldAlert } from 'lucide-react'
-import { updateHabilitacaoStatus } from '@/app/actions/habilitacoes'
+import { ArrowLeft, UserCheck, Check, X, ShieldAlert } from "lucide-react"
+import { updateHabilitacaoStatus } from "@/app/actions/habilitacoes"
 
 export const dynamic = 'force-dynamic';
 

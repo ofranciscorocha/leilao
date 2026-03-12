@@ -1,8 +1,8 @@
 'use server'
 
-import { prisma } from '@/lib/prisma'
-import { revalidatePath } from 'next/cache'
-import { z } from 'zod'
+import { prisma } from "@/lib/prisma"
+import { revalidatePath } from "next/cache"
+import { z } from "zod"
 
 const AuctionSchema = z.object({
     title: z.string().min(1, 'Title is required'),

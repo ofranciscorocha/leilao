@@ -1,6 +1,6 @@
-import { prisma } from '@/lib/prisma'
-import { notFound } from 'next/navigation'
-import { Clock } from 'lucide-react'
+import { prisma } from "@/lib/prisma"
+import { notFound } from "next/navigation"
+import { Clock } from "lucide-react"
 
 // Simulando dados baseados na screenshot
 export default async function AuditorioTelaoPage({ params }: { params: { id: string } }) {

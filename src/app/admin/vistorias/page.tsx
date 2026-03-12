@@ -1,7 +1,7 @@
 'use client';
 
-import { useState } from 'react';
-import { ClipboardCheck, Plus, Eye, Printer, FileText, Search, Car, Calendar, User, ChevronRight } from 'lucide-react';
+import { useState } from "react";
+import { ClipboardCheck, Plus, Eye, Printer, FileText, Search, Car, Calendar, User, ChevronRight } from "lucide-react";
 import Link from 'next/link';
 
 // Mock data for existing inspections

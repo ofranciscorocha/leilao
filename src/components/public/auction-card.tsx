@@ -1,9 +1,9 @@
 import Link from 'next/link'
-import { Card, CardContent, CardFooter } from '@/components/ui/card'
-import { Badge } from '@/components/ui/badge'
-import { Button } from '@/components/ui/button'
-import { Calendar, MapPin, Gavel } from 'lucide-react'
-import { formatDate } from '@/lib/utils'
+import { Card, CardContent, CardFooter } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button"
+import { Calendar, MapPin, Gavel } from "lucide-react"
+import { formatDate, cn } from "@/lib/utils"
 import { Auction } from '@prisma/client'
 
 interface AuctionCardProps {
@@ -102,4 +102,4 @@ export function AuctionCard({ auction }: AuctionCardProps) {
     )
 }
 
-import { cn } from '@/lib/utils'
+

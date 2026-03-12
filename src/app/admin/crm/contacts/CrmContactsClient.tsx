@@ -1,17 +1,17 @@
 'use client'
 
-import { useState, useTransition, useMemo } from 'react'
-import { useRouter } from 'next/navigation'
+import { useState, useTransition, useMemo } from "react"
+import { useRouter } from "next/navigation"
 import {
   Users, Plus, Search, Edit2, Trash2, X, Linkedin,
   Phone, Mail, Building, ChevronRight, Kanban, Activity, UserCheck
-} from 'lucide-react'
+} from "lucide-react"
 import Link from 'next/link'
 import {
   createCrmContact,
   updateCrmContact,
   deleteCrmContact,
-} from '@/app/actions/crm'
+} from "@/app/actions/crm"
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 

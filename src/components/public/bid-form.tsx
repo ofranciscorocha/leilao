@@ -1,12 +1,12 @@
 'use client'
 
-import { useState, useEffect } from 'react'
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { placeBid } from '@/app/actions/bid'
+import { useState, useEffect } from "react"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { placeBid } from "@/app/actions/bid"
 import { toast } from 'sonner'
-import { Gavel } from 'lucide-react'
-import { socket } from '@/lib/socket-client'
+import { Gavel } from "lucide-react"
+import { socket } from "@/lib/socket-client"
 
 interface BidFormProps {
     lotId: string

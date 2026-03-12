@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState } from "react"
 import { io, Socket } from 'socket.io-client'
 
 export function ObsOverlayPanel({ auction, lots }: { auction: any, lots: any[] }) {

@@ -1,6 +1,6 @@
 'use server'
-import { prisma } from '@/lib/prisma'
-import { revalidatePath } from 'next/cache'
+import { prisma } from "@/lib/prisma"
+import { revalidatePath } from "next/cache"
 
 // List all vendas diretas, optionally filtered by status
 export async function getVendasDiretas(status?: string) {

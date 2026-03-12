@@ -1,7 +1,7 @@
-import { Package2, ArrowLeft, Save, Car, Building2, HelpCircle } from 'lucide-react'
+import { Package2, ArrowLeft, Save, Car, Building2, HelpCircle } from "lucide-react"
 import Link from 'next/link'
-import { createVehicleEntry as createLotLogistics } from '@/app/actions/logistics'
-import { redirect } from 'next/navigation'
+import { createVehicleEntry as createLotLogistics } from "@/app/actions/logistics"
+import { redirect } from "next/navigation"
 
 export default async function NewLogisticsPage({
     searchParams

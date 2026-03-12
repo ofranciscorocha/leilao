@@ -1,10 +1,10 @@
 'use client'
 
-import { useState } from 'react'
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
-import { Button } from '@/components/ui/button'
+import { useState } from "react"
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
 import Link from 'next/link'
-import { Mail, CheckCircle } from 'lucide-react'
+import { Mail, CheckCircle } from "lucide-react"
 
 export default function VerifyEmailPage() {
     const [verified, setVerified] = useState(false)

@@ -1,7 +1,7 @@
 'use server'
 
-import { prisma } from '@/lib/prisma'
-import { revalidatePath } from 'next/cache'
+import { prisma } from "@/lib/prisma"
+import { revalidatePath } from "next/cache"
 
 export async function placeBid(lotId: string, amount: number, bidderName: string) {
     try {

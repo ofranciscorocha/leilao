@@ -4,9 +4,9 @@ import { Search, Menu, X, User, Gavel, ChevronDown, LogOut } from "lucide-react"
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { useAuth } from "@/hooks/useAuth";
-import { Logo } from "@/components/gleam/Logo";
-import { ThemeToggle } from "@/components/ThemeToggle";
+import { useAuth } from "@/hooks/useauth";
+import { Logo } from "./logo";
+import { ThemeToggle } from "@/components/themetoggle";
 import { ShoppingCart } from "lucide-react";
 
 const navLinks = [

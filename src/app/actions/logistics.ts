@@ -1,8 +1,8 @@
 'use server'
 
-import { prisma } from '@/lib/prisma'
-import { revalidatePath } from 'next/cache'
-import { redirect } from 'next/navigation'
+import { prisma } from "@/lib/prisma"
+import { revalidatePath } from "next/cache"
+import { redirect } from "next/navigation"
 
 export async function createVehicleEntry(formData: FormData) {
     const title = formData.get('title') as string
@@ -96,5 +96,20 @@ export async function submitInspection(lotId: string, data: any) {
     } catch (error) {
         console.error('Failed to submit inspection:', error)
         return { success: false, message: 'Erro ao salvar vistoria.' }
+    }
+}
+
+export async function updateLotStatus(id: string, status: string) {
+    try {
+        await prisma.lot.update({
+            where: { id },
+            data: { status }
+        })
+        revalidatePath('/admin/logistics')
+        revalidatePath(`/admin/logistics/${id}`)
+        return { success: true, message: 'Status atualizado com sucesso!' }
+    } catch (error) {
+        console.error('Failed to update status:', error)
+        return { success: false, message: 'Erro ao atualizar status.' }
     }
 }

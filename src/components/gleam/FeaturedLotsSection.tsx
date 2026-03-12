@@ -1,5 +1,5 @@
 'use client';
-import LotCard from "./LotCard";
+import LotCard from "./lotcard";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { ArrowRight, Car, Home, Package, Search, Filter } from "lucide-react";

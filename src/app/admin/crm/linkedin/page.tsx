@@ -1,14 +1,14 @@
 'use client'
 
-import { useState, useCallback } from 'react'
+import { useState, useCallback } from "react"
 import {
     Linkedin, Search, Sparkles, Mail, Plus, CheckSquare, Square,
     Loader2, AlertCircle, Info, ChevronLeft, ChevronRight,
     Building, MapPin, Briefcase, Tag, BarChart2, ListPlus, Send,
     ExternalLink, X, CheckCircle2, Users
-} from 'lucide-react'
+} from "lucide-react"
 import Link from 'next/link'
-import { bulkCreateLeads } from '@/app/actions/leads'
+import { bulkCreateLeads } from "@/app/actions/leads"
 
 // ─── TYPES ─────────────────────────────────────────────────────────────────────
 

@@ -1,9 +1,9 @@
-import { Navbar } from '@/components/public/navbar'
-import { Footer } from '@/components/public/footer'
-import { prisma } from '@/lib/prisma'
-import { LotCard } from '@/components/public/lot-card'
-import { HorizontalLotCard } from '@/components/public/horizontal-lot-card'
-import { Button } from '@/components/ui/button'
+import { Navbar } from "@/components/public/navbar"
+import { Footer } from "@/components/public/footer"
+import { prisma } from "@/lib/prisma"
+import { LotCard } from "@/components/public/lot-card"
+import { HorizontalLotCard } from "@/components/public/horizontal-lot-card"
+import { Button } from "@/components/ui/button"
 import Link from 'next/link'
 
 export default async function SearchPage(props: {

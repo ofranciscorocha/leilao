@@ -1,5 +1,5 @@
-import { getCrmContacts } from '@/app/actions/crm'
-import CrmContactsClient from './CrmContactsClient'
+import { getCrmContacts } from "@/app/actions/crm"
+import CrmContactsClient from "./crmcontactsclient"
 
 export const dynamic = 'force-dynamic'
 

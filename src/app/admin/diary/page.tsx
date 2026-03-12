@@ -1,5 +1,5 @@
-import { getDiaryEvents } from '@/app/actions/diary'
-import DiaryClient from './DiaryClient'
+import { getDiaryEvents } from "@/app/actions/diary"
+import DiaryClient from "./diaryclient"
 
 export const dynamic = 'force-dynamic'
 

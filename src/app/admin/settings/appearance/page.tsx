@@ -1,9 +1,9 @@
 'use client'
 
-import { useState, useEffect } from 'react'
-import { Settings, Save, Upload, Palette, Home, CheckCircle, AlertCircle, Loader2, Globe, Phone, Mail, MapPin, Search } from 'lucide-react'
+import { useState, useEffect } from "react"
+import { Settings, Save, Upload, Palette, Home, CheckCircle, AlertCircle, Loader2, Globe, Phone, Mail, MapPin, Search } from "lucide-react"
 import Link from 'next/link'
-import { getSystemSettings, updateSystemSettings } from '@/app/actions/settings'
+import { getSystemSettings, updateSystemSettings } from "@/app/actions/settings"
 
 export default function AppearanceSettingsPage() {
     const [config, setConfig] = useState({

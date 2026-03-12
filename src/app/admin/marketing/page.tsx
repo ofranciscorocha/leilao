@@ -1,7 +1,7 @@
 'use client'
 
-import { useState } from 'react'
-import { Mail, Plus, Send, Eye, Pause, Play, Trash2, BarChart2, Users, Clock, CheckCircle, XCircle, Edit2, Copy, Search, ChevronRight } from 'lucide-react'
+import { useState } from "react"
+import { Mail, Plus, Send, Eye, Pause, Play, Trash2, BarChart2, Users, Clock, CheckCircle, XCircle, Edit2, Copy, Search, ChevronRight } from "lucide-react"
 import Link from 'next/link'
 
 type CampaignStatus = 'DRAFT' | 'SCHEDULED' | 'SENDING' | 'SENT' | 'PAUSED'

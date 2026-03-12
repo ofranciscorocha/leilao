@@ -1,16 +1,19 @@
-import { prisma } from '@/lib/prisma'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Gavel, Package, Users, Archive, CheckCircle2 } from 'lucide-react'
-import { DashboardChart } from '@/components/admin/dashboard-chart'
+import { prisma } from "@/lib/prisma"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Gavel, Package, Users, Archive, CheckCircle2, FileText, Lock, Mail, Clock, AlertCircle, Globe } from "lucide-react"
+import { DashboardChart } from "@/components/admin/dashboard-chart"
+import { Button } from "@/components/ui/button"
+import { cn } from "@/lib/utils"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 
 // Placeholder for the chart since we don't have a charting lib installed yet (like reumobile/recharts)
 // We will simply display a placeholder or basic CSS bar for now to match the layout.
 
 async function getStats() {
-    const activeAuctions = await prisma.auction.count({ where: { status: 'OPEN' } })
-    const activeLots = await prisma.lot.count({ where: { auction: { status: 'OPEN' } } }) // Simple approximation
-    const closedAuctions = await prisma.auction.count({ where: { status: 'CLOSED' } })
-    const totalUsers = await prisma.user.count()
+    const activeAuctions = await (prisma.auction as any).count({ where: { status: 'OPEN' } })
+    const activeLots = await (prisma.lot as any).count({ where: { auction: { status: 'OPEN' } } })
+    const closedAuctions = await (prisma.auction as any).count({ where: { status: 'CLOSED' } })
+    const totalUsers = await (prisma.user as any).count()
 
     return { activeAuctions, activeLots, closedAuctions, totalUsers }
 }
@@ -193,9 +196,4 @@ function QuickActionButton({ icon: Icon, label, color }: any) {
         </button>
     )
 }
-
-// Icons needed for the top bar
-import { Lock, Mail, Clock, AlertCircle, Package, Archive, Globe, FileText } from 'lucide-react'
-import { cn } from '@/lib/utils'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 

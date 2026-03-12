@@ -1,6 +1,6 @@
-import { prisma } from '@/lib/prisma'
-import { notFound } from 'next/navigation'
-import { ObsOverlayPanel } from '@/components/public/obs-overlay-panel'
+import { prisma } from "@/lib/prisma"
+import { notFound } from "next/navigation"
+import { ObsOverlayPanel } from "@/components/public/obs-overlay-panel"
 
 // This page is meant to be loaded as a Browser Source in OBS Studio / vMix
 // It should have a transparent background and show critical auction data

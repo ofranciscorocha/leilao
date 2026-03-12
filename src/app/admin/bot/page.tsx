@@ -1,7 +1,7 @@
 'use client'
 
-import { useState } from 'react'
-import { Bot, MessageSquare, Clock, User, Send, CheckCheck, Search, Circle, ArrowRight, Phone, Link2, Settings, Plus, RefreshCw } from 'lucide-react'
+import { useState } from "react"
+import { Bot, MessageSquare, Clock, User, Send, CheckCheck, Search, Circle, ArrowRight, Phone, Link2, Settings, Plus, RefreshCw } from "lucide-react"
 import Link from 'next/link'
 
 interface Message {

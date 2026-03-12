@@ -1,20 +1,20 @@
-import { prisma } from '@/lib/prisma'
-import { Button } from '@/components/ui/button'
+import { prisma } from "@/lib/prisma"
+import { Button } from "@/components/ui/button"
 import {
     Select,
     SelectContent,
     SelectItem,
     SelectTrigger,
     SelectValue
-} from '@/components/ui/select'
-import { CreateAuctionDialog } from '@/components/admin/create-auction-dialog'
-import { DeleteAuctionButton } from '@/components/admin/delete-auction-button'
-import { AuctionFilters } from '@/components/admin/auction-filters'
-import { formatDate } from '@/lib/utils'
+} from "@/components/ui/select"
+import { CreateAuctionDialog } from "@/components/admin/create-auction-dialog"
+import { DeleteAuctionButton } from "@/components/admin/delete-auction-button"
+import { AuctionFilters } from "@/components/admin/auction-filters"
+import { formatDate } from "@/lib/utils"
 import {
     Pencil,
     Gavel,
-} from 'lucide-react'
+} from "lucide-react"
 import { Prisma } from '@prisma/client'
 
 export default async function AuctionsPage(props: {

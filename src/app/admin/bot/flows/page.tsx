@@ -1,7 +1,7 @@
 'use client'
-import { Bot, Plus, ArrowRight, X, MessageSquare, HelpCircle, Zap } from 'lucide-react'
+import { Bot, Plus, ArrowRight, X, MessageSquare, HelpCircle, Zap } from "lucide-react"
 import Link from 'next/link'
-import { useState } from 'react'
+import { useState } from "react"
 
 const MOCK_FLOWS = [
   { id: '1', name: 'Menu Principal', trigger: 'oi,olá,ola,menu,inicio', channel: 'WHATSAPP', active: true, steps: 5 },

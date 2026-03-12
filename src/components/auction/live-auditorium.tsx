@@ -1,15 +1,15 @@
 'use client'
 
-import { useEffect, useState, useRef } from 'react'
+import { useEffect, useState, useRef } from "react"
 import { io, Socket } from 'socket.io-client'
-import { Button } from '@/components/ui/button'
-import { Card } from '@/components/ui/card'
-import { Badge } from '@/components/ui/badge'
-import { ScrollArea } from '@/components/ui/scroll-area'
-import { Input } from '@/components/ui/input'
-import { formatCurrency } from '@/lib/utils'
+import { Button } from "@/components/ui/button"
+import { Card } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
+import { ScrollArea } from "@/components/ui/scroll-area"
+import { Input } from "@/components/ui/input"
+import { formatCurrency } from "@/lib/utils"
 import { toast } from 'sonner'
-import { placeBid } from '@/app/actions/bid'
+import { placeBid } from "@/app/actions/bid"
 
 interface LiveAuditoriumProps {
     auctionId: string

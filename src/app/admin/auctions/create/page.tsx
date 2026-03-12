@@ -1,6 +1,6 @@
-import { Gavel, Save, ArrowLeft, Video, Settings, Calendar, Info, DollarSign, MapPin, UserCheck, BookOpen } from 'lucide-react'
+import { Gavel, Save, ArrowLeft, Video, Settings, Calendar, Info, DollarSign, MapPin, UserCheck, BookOpen } from "lucide-react"
 import Link from 'next/link'
-import { createAuction } from '@/app/actions/auctions'
+import { createAuction } from "@/app/actions/auctions"
 
 export default function CreateAuctionPage() {
     return (

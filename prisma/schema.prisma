@@ -144,7 +144,24 @@ model Auction {
   
   // Real-Time / Streaming
   streamingUrl    String? // YouTube/HLS URL
+  videoEmbedUrl   String? // URL para embed de vídeo
   overtimeSeconds Int     @default(120) // Tempo de acréscimo
+  
+  // Fees & Admin (from actions/auctions.ts)
+  taxaAdministrativa Float?
+  comissaoLeiloeiro  Float?
+  caucao             Boolean @default(false)
+  caucaoValor        Float?
+  
+  // Visitation
+  visitacaoLocal     String?
+  visitacaoInicio    DateTime?
+  visitacaoFim       DateTime?
+
+  // Auctioneer & Rules
+  leiloeiroNome      String?
+  leiloeiroMatricula String?
+  editalRegras       String?
   
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
@@ -170,6 +187,23 @@ model Lot {
   plate           String?
   chassis         String?
   location        String?
+  
+  // Robust Fields
+  placaUf         String?
+  renavam         String?
+  numeroMotor     String?
+  linhaVeiculo    String?
+  versaoVeiculo   String?
+  fipeCodigo      String?
+  fipeValor       Float?
+  sucata          Boolean  @default(false)
+  accessories     String?
+  processoSei     String?
+  orgaoContrato   String?
+  observacoes     String?
+  observacoesInternas String?
+  comitente       String?
+  entrada         DateTime @default(now())
   
   // Financials
   startingPrice   Float

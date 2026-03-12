@@ -1,6 +1,6 @@
-import { prisma } from '@/lib/prisma'
-import { notFound } from 'next/navigation'
-import { PrintButton } from '@/components/vistoria/PrintButton'
+import { prisma } from "@/lib/prisma"
+import { notFound } from "next/navigation"
+import { PrintButton } from "@/components/vistoria/printbutton"
 
 export const dynamic = 'force-dynamic';
 

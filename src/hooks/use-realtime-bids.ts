@@ -1,7 +1,7 @@
 'use client'
 
-import { useEffect, useState } from 'react'
-import { subscribeToBids, subscribeToLot, unsubscribe, BidUpdate, LotUpdate } from '@/lib/realtime'
+import { useEffect, useState } from "react"
+import { subscribeToBids, subscribeToLot, unsubscribe, BidUpdate, LotUpdate } from "@/lib/realtime"
 
 interface Bid {
   id: string

@@ -1,12 +1,12 @@
 'use client'
 
-import { deleteLot } from '@/app/actions/lot'
-import { Button } from '@/components/ui/button'
-import { Trash2 } from 'lucide-react'
+import { deleteLot } from "@/app/actions/lot"
+import { Button } from "@/components/ui/button"
+import { Trash2 } from "lucide-react"
 import { toast } from 'sonner'
-import { useTransition } from 'react'
+import { useTransition } from "react"
 
-export function DeleteLotButton({ id }: { id: string }) {
+export async function DeleteLotButton({ id }: { id: string }) {
     const [isPending, startTransition] = useTransition()
 
     async function handleDelete() {

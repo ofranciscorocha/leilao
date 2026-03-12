@@ -1,8 +1,8 @@
 import Link from 'next/link';
-import { Menu, Info, HelpCircle, Mail, X } from 'lucide-react';
-import { logout } from '@/app/actions/auth';
+import { Menu, Info, HelpCircle, Mail, X } from "lucide-react";
+import { logout } from "@/app/actions/auth";
 
-export function Header() {
+export async function Header() {
     return (
         <header className="flex items-center justify-between h-[50px] bg-[#3c8dbc] text-white shadow-sm w-full">
             {/* Left side actions */}

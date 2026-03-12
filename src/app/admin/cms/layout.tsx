@@ -1,6 +1,6 @@
-import { Button } from '@/components/ui/button'
+import { Button } from "@/components/ui/button"
 import Link from 'next/link'
-import { Image, FileText, Settings, LayoutTemplate } from 'lucide-react'
+import { Image, FileText, Settings, LayoutTemplate } from "lucide-react"
 
 export default function CMSLayout({ children }: { children: React.ReactNode }) {
     return (

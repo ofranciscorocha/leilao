@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from "react"
 import {
     Instagram,
     Save,
@@ -11,9 +11,9 @@ import {
     User,
     Loader2,
     ExternalLink
-} from 'lucide-react'
+} from "lucide-react"
 import Link from 'next/link'
-import { getBotConfig, saveBotConfig } from '@/app/actions/bot'
+import { getBotConfig, saveBotConfig } from "@/app/actions/bot"
 
 export default function InstagramBotPage() {
     const [instagramEnabled, setInstagramEnabled] = useState(false)

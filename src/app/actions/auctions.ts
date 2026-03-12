@@ -1,7 +1,7 @@
 'use server'
 
-import { prisma } from '@/lib/prisma'
-import { redirect } from 'next/navigation'
+import { prisma } from "@/lib/prisma"
+import { redirect } from "next/navigation"
 
 export async function createAuction(formData: FormData) {
     const title = formData.get('title') as string;

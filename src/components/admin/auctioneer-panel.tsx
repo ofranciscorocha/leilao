@@ -1,19 +1,19 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState } from "react"
 import { io, Socket } from 'socket.io-client'
-import { Button } from '@/components/ui/button'
-import { Card } from '@/components/ui/card'
-import { Badge } from '@/components/ui/badge'
-import { Input } from '@/components/ui/input'
+import { Button } from "@/components/ui/button"
+import { Card } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
+import { Input } from "@/components/ui/input"
 import { toast } from 'sonner'
-import { Play, Pause, Gavel, SkipForward, Megaphone } from 'lucide-react'
+import { Play, Pause, Gavel, SkipForward, Megaphone } from "lucide-react"
 
 interface AuctioneerPanelProps {
     auctionId: string
 }
 
-export function AuctioneerPanel({ auctionId }: AuctioneerPanelProps) {
+export async function AuctioneerPanel({ auctionId }: AuctioneerPanelProps) {
     const [socket, setSocket] = useState<Socket | null>(null)
     const [isConnected, setIsConnected] = useState(false)
     const [message, setMessage] = useState('')

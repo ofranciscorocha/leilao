@@ -1,8 +1,8 @@
 'use client'
 
-import { useState } from 'react'
-import { createAuction } from '@/app/actions/auction'
-import { Button } from '@/components/ui/button'
+import { useState } from "react"
+import { createAuction } from "@/app/actions/auction"
+import { Button } from "@/components/ui/button"
 import {
     Dialog,
     DialogContent,
@@ -11,14 +11,14 @@ import {
     DialogHeader,
     DialogTitle,
     DialogTrigger,
-} from '@/components/ui/dialog'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
-import { Textarea } from '@/components/ui/textarea'
-import { Plus } from 'lucide-react'
+} from "@/components/ui/dialog"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import { Textarea } from "@/components/ui/textarea"
+import { Plus } from "lucide-react"
 import { toast } from 'sonner'
 
-export function CreateAuctionDialog() {
+export async function CreateAuctionDialog() {
     const [open, setOpen] = useState(false)
     const [isPending, setIsPending] = useState(false)
 

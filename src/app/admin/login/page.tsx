@@ -1,11 +1,11 @@
 'use client'
 
-import { useActionState } from 'react'
-import { login } from '@/app/actions/auth'
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
+import { useActionState } from "react"
+import { login } from "@/app/actions/auth"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 
 // Define initial state type explicitly to match useActionState expectations
 const initialState = {
@@ -104,4 +104,4 @@ export default function AdminLogin() {
     )
 }
 
-import { Gavel, Lock, User } from 'lucide-react'
+import { Gavel, Lock, User } from "lucide-react"

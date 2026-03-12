@@ -1,15 +1,15 @@
 'use client'
 
-import { useState } from 'react'
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
-import { Textarea } from '@/components/ui/textarea'
-import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card'
-import { Checkbox } from '@/components/ui/checkbox'
+import { useState } from "react"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import { Textarea } from "@/components/ui/textarea"
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
+import { Checkbox } from "@/components/ui/checkbox"
 import { toast } from 'sonner'
-import { createVehicleEntry } from '@/app/actions/logistics'
-import { Loader2 } from 'lucide-react'
+import { createVehicleEntry } from "@/app/actions/logistics"
+import { Loader2 } from "lucide-react"
 
 export default function VehicleEntryPage() {
     const [loading, setLoading] = useState(false)

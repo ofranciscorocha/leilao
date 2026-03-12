@@ -1,4 +1,4 @@
-import { Construction } from 'lucide-react'
+import { Construction } from "lucide-react"
 
 export default function PlaceholderPage() {
     return (

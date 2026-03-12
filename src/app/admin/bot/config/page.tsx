@@ -1,9 +1,9 @@
 'use client'
 
-import { useState, useEffect } from 'react'
-import { Bot, Save, AlertCircle, CheckCircle, Phone, Instagram, Brain, Clock, Loader2 } from 'lucide-react'
+import { useState, useEffect } from "react"
+import { Bot, Save, AlertCircle, CheckCircle, Phone, Instagram, Brain, Clock, Loader2 } from "lucide-react"
 import Link from 'next/link'
-import { getBotConfig, saveBotConfig } from '@/app/actions/bot'
+import { getBotConfig, saveBotConfig } from "@/app/actions/bot"
 
 const DEFAULT_CONFIG = {
     whatsappEnabled: true,

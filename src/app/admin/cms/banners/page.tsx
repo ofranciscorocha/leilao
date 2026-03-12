@@ -1,15 +1,15 @@
 'use client'
 
-import { useState } from 'react'
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
-import { Switch } from '@/components/ui/switch'
-import { Trash2, Plus, Save } from 'lucide-react'
+import { useState } from "react"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
+import { Switch } from "@/components/ui/switch"
+import { Trash2, Plus, Save } from "lucide-react"
 import { toast } from 'sonner'
-import { createBanner, deleteBanner, toggleBannerStatus } from '@/app/actions/cms'
+import { createBanner, deleteBanner, toggleBannerStatus } from "@/app/actions/cms"
 
 export default function BannersPage() {
     const [loading, setLoading] = useState(false)

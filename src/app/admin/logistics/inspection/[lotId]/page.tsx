@@ -1,8 +1,8 @@
-import InspectionForm from '@/components/admin/logistics/inspection-form'
-import { prisma } from '@/lib/prisma'
-import { notFound } from 'next/navigation'
-import { Card } from '@/components/ui/card'
-import { Badge } from '@/components/ui/badge'
+import InspectionForm from "@/components/admin/logistics/inspection-form"
+import { prisma } from "@/lib/prisma"
+import { notFound } from "next/navigation"
+import { Card } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
 
 export default async function InspectionPage(props: { params: Promise<{ lotId: string }> }) {
     const params = await props.params

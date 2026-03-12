@@ -1,9 +1,9 @@
 'use server'
 
-import { prisma } from '@/lib/prisma'
-import { createServerClient } from '@/lib/supabase-server'
-import { redirect } from 'next/navigation'
-import { revalidatePath } from 'next/cache'
+import { prisma } from "@/lib/prisma"
+import { createServerClient } from "@/lib/supabase-server"
+import { redirect } from "next/navigation"
+import { revalidatePath } from "next/cache"
 
 export async function logout() {
     const supabase = await createServerClient()
@@ -11,7 +11,7 @@ export async function logout() {
     redirect('/admin/login')
 }
 
-import { z } from 'zod'
+import { z } from "zod"
 
 const LoginSchema = z.object({
     email: z.string().min(1, 'Usuário ou e-mail é obrigatório'),

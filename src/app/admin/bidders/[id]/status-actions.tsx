@@ -1,11 +1,11 @@
 'use client'
 
-import { useState } from 'react'
-import { Check, Clock, XCircle, Ban } from 'lucide-react'
-import { updateBidderStatus } from '@/app/actions/bidders'
-import { useRouter } from 'next/navigation'
+import { useState } from "react"
+import { Check, Clock, XCircle, Ban } from "lucide-react"
+import { updateBidderStatus } from "@/app/actions/bidders"
+import { useRouter } from "next/navigation"
 
-export function StatusActions({ userId, currentStatus }: { userId: string, currentStatus: string }) {
+export async function StatusActions({ userId, currentStatus }: { userId: string, currentStatus: string }) {
     const [isLoading, setIsLoading] = useState(false)
     const router = useRouter()
 

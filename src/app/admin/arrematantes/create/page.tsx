@@ -1,9 +1,9 @@
 'use client'
 
-import { useState } from 'react'
-import { Save, ArrowLeft, UserPlus, MapPin, Building2, User } from 'lucide-react'
+import { useState } from "react"
+import { Save, ArrowLeft, UserPlus, MapPin, Building2, User } from "lucide-react"
 import Link from 'next/link'
-import { createArrematante } from '@/app/actions/arrematantes'
+import { createArrematante } from "@/app/actions/arrematantes"
 
 export default function CreateArrematantePage() {
     const [personType, setPersonType] = useState<'PF' | 'PJ'>('PF')

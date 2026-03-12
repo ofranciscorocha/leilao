@@ -1,5 +1,5 @@
-import { prisma } from '@/lib/prisma'
-import { notFound } from 'next/navigation'
+import { prisma } from "@/lib/prisma"
+import { notFound } from "next/navigation"
 import Link from 'next/link'
 import {
     Package2,
@@ -15,8 +15,8 @@ import {
     Truck,
     Clock,
     Car
-} from 'lucide-react'
-import { LotActionButtons } from './action-buttons'
+} from "lucide-react"
+import { LotActionButtons } from "./action-buttons"
 
 // Helper for date difference (Dias no Pátio)
 function getDaysDifference(startDate: Date, endDate: Date = new Date()) {
@@ -73,18 +73,30 @@ export default async function LotLogisticsPage(props: { params: Promise<{ id: st
     }
 
     const {
-        id, status, comitente, entrada, saida, despesaClassificacao,
-        startingPrice, reservePrice, placaUf, linhaVeiculo,
+        id, status, comitente, entrada, startingPrice, reservePrice, placaUf, linhaVeiculo,
         manufacturer, model, versaoVeiculo, category, processoSei, orgaoContrato,
-        patio, localPatio, fipeCodigo, fipeValor, sucata, hasKeys,
+        fipeCodigo, fipeValor, sucata, 
         year, color, fuel, chassis, numeroMotor, renavam, accessories,
-        modalidade, observacoes, observacoesInternas, createdAt, updatedAt
+        observacoes, observacoesInternas, createdAt, updatedAt
     } = lot
+
+    // Related fields
+    const hasKeys = lot.logistics?.hasKeys || false
+    const storageLocation = lot.logistics?.storageLocation || '--'
+    const keyLocation = lot.logistics?.keyLocation || '--'
+    const entryDate = lot.logistics?.entryDate || entrada
+    const modalidade = lot.auction?.modalidade || 'Extra-Judicial'
+    
+    // Fallback for fields not yet in schema
+    const saida = null
+    const despesaClassificacao = 'VEÍCULOS'
+    const patio = 'Pátio Rocha Leilões - Feira de Santana/BA'
+    const localPatio = storageLocation
 
     // Extract lotNumber for ID display if actual UUID is long
     const displayId = id.slice(-6).toUpperCase()
 
-    const diasNoPatio = entrada ? getDaysDifference(entrada, saida || new Date()) : 0
+
 
     return (
         <div className="space-y-4 max-w-7xl">
@@ -169,7 +181,7 @@ export default async function LotLogisticsPage(props: { params: Promise<{ id: st
                                 </tr>
                                 <tr>
                                     <th className="py-2.5 px-3 font-bold text-[#333] bg-[#fdfdfd]">Entrada</th>
-                                    <td className="py-2.5 px-3">{formatDate(entrada)}</td>
+                                    <td className="py-2.5 px-3">{formatDate(entryDate)}</td>
                                 </tr>
                                 <tr>
                                     <th className="py-2.5 px-3 font-bold text-[#333] bg-[#fdfdfd]">Saída</th>
@@ -177,7 +189,7 @@ export default async function LotLogisticsPage(props: { params: Promise<{ id: st
                                 </tr>
                                 <tr>
                                     <th className="py-2.5 px-3 font-bold text-[#333] bg-[#fdfdfd]">Dias no Pátio</th>
-                                    <td className="py-2.5 px-3">{diasNoPatio}</td>
+                                    <td className="py-2.5 px-3">{entrada ? getDaysDifference(entrada, saida || new Date()) : 0}</td>
                                 </tr>
                                 <tr>
                                     <th className="py-2.5 px-3 font-bold text-[#333] bg-[#fdfdfd]">Classificação de Despesas</th>

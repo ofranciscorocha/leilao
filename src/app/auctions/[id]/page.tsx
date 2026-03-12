@@ -1,13 +1,13 @@
-import { Navbar } from '@/components/public/navbar'
-import { Footer } from '@/components/public/footer'
-import { prisma } from '@/lib/prisma'
-import { LotCard } from '@/components/public/lot-card'
-import { notFound } from 'next/navigation'
-import { Calendar, MapPin, Gavel } from 'lucide-react'
-import { formatDate } from '@/lib/utils'
-import { LiveAuditorium } from '@/components/auction/live-auditorium'
-import { Badge } from '@/components/ui/badge'
-import { Button } from '@/components/ui/button'
+import { Navbar } from "@/components/public/navbar"
+import { Footer } from "@/components/public/footer"
+import { prisma } from "@/lib/prisma"
+import { LotCard } from "@/components/public/lot-card"
+import { notFound } from "next/navigation"
+import { Calendar, MapPin, Gavel } from "lucide-react"
+import { formatDate } from "@/lib/utils"
+import { LiveAuditorium } from "@/components/auction/live-auditorium"
+import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button"
 
 export const revalidate = 60
 

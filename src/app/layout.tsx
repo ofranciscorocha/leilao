@@ -1,9 +1,10 @@
-import type { Metadata } from 'next'
+export const dynamic = "force-dynamic"
+import type { Metadata } from "next"
 import { Inter } from 'next/font/google'
-import './globals.css'
+import "./globals.css"
 import { Toaster } from "@/components/ui/sonner"
-import { WhatsAppButton } from '@/components/public/whatsapp-button'
-import { AuthProvider } from '@/contexts/auth-context'
+import { WhatsAppButton } from "@/components/public/whatsapp-button"
+import { AuthProvider } from "@/contexts/auth-context"
 
 const inter = Inter({ subsets: ['latin'] })
 

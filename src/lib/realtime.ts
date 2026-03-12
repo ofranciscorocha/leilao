@@ -1,6 +1,6 @@
 'use client'
 
-import { supabase } from './supabase-client'
+import { supabase } from "./supabase-client"
 import { RealtimeChannel } from '@supabase/supabase-js'
 
 export interface BidUpdate {

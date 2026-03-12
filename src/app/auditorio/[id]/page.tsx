@@ -1,6 +1,6 @@
-import { prisma } from '@/lib/prisma'
-import { AuditoriumView } from '@/components/public/auditorium-view'
-import { notFound } from 'next/navigation'
+import { prisma } from "@/lib/prisma"
+import { AuditoriumView } from "@/components/public/auditorium-view"
+import { notFound } from "next/navigation"
 
 // This page generates a static shell but content is dynamic
 export const dynamic = 'force-dynamic'

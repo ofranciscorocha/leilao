@@ -1,7 +1,7 @@
 'use client'
 
-import { useState } from 'react'
-import { Phone, Plus, Send, Eye, Trash2, Edit2, Users, BarChart2, MessageSquare, Search, CheckCheck, Clock, AlertCircle } from 'lucide-react'
+import { useState } from "react"
+import { Phone, Plus, Send, Eye, Trash2, Edit2, Users, BarChart2, MessageSquare, Search, CheckCheck, Clock, AlertCircle } from "lucide-react"
 import Link from 'next/link'
 
 type Status = 'DRAFT' | 'SCHEDULED' | 'SENDING' | 'SENT' | 'PAUSED'

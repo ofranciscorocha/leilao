@@ -1,7 +1,7 @@
-import { Package, Save, ArrowLeft, Info, DollarSign, Tag, Search, Car, FileText } from 'lucide-react'
+import { Package, Save, ArrowLeft, Info, DollarSign, Tag, Search, Car, FileText } from "lucide-react"
 import Link from 'next/link'
-import { createLot } from '@/app/actions/lots'
-import { prisma } from '@/lib/prisma'
+import { createLot } from "@/app/actions/lots"
+import { prisma } from "@/lib/prisma"
 
 export default async function CreateLotPage() {
     // Note: Em produção, você puxaria os leilões ativos para o select

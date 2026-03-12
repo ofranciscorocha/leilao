@@ -1,11 +1,11 @@
 'use client'
 
-import { useState, useRef } from 'react'
+import { useState, useRef } from "react"
 import {
     ClipboardCheck, Upload, Brain, Camera, Car, Loader2,
     CheckCircle, AlertTriangle, Star, Gauge, Wrench, Eye,
     FileText, X, Plus, ArrowLeft, Zap
-} from 'lucide-react'
+} from "lucide-react"
 import Link from 'next/link'
 
 interface PhotoSlot {

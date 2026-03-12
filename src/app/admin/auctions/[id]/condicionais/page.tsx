@@ -1,8 +1,8 @@
-import { prisma } from '@/lib/prisma'
-import { notFound } from 'next/navigation'
+import { prisma } from "@/lib/prisma"
+import { notFound } from "next/navigation"
 import Link from 'next/link'
-import { ArrowLeft, Check, X, Scale } from 'lucide-react'
-import { approveConditional, rejectConditional } from '@/app/actions/condicionais'
+import { ArrowLeft, Check, X, Scale } from "lucide-react"
+import { approveConditional, rejectConditional } from "@/app/actions/condicionais"
 
 export const dynamic = 'force-dynamic';
 

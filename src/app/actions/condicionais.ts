@@ -1,7 +1,7 @@
 'use server'
 
-import { prisma } from '@/lib/prisma'
-import { revalidatePath } from 'next/cache'
+import { prisma } from "@/lib/prisma"
+import { revalidatePath } from "next/cache"
 
 export async function approveConditional(lotId: string, currentStatus: string) {
     if (currentStatus !== 'CONDICIONAL') throw new Error('O lote não está em condicional');

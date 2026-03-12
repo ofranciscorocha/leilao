@@ -1,9 +1,9 @@
 'use client'
 
-import { useState } from 'react'
-import { useRouter } from 'next/navigation'
+import { useState } from "react"
+import { useRouter } from "next/navigation"
 import Link from 'next/link'
-import { createVendaDireta, sendLotToVendaDireta } from '@/app/actions/vendaDireta'
+import { createVendaDireta, sendLotToVendaDireta } from "@/app/actions/vendadireta"
 import {
   ArrowLeft,
   Car,
@@ -14,7 +14,7 @@ import {
   AlertCircle,
   CheckCircle,
   Truck,
-} from 'lucide-react'
+} from "lucide-react"
 
 function Field({ label, children, required }: { label: string; children: React.ReactNode; required?: boolean }) {
   return (

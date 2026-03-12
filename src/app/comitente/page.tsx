@@ -1,7 +1,7 @@
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { prisma } from '@/lib/prisma'
-import { formatCurrency } from '@/lib/utils'
-import { BarChart, Users, DollarSign, Package } from 'lucide-react'
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { prisma } from "@/lib/prisma"
+import { formatCurrency } from "@/lib/utils"
+import { BarChart, Users, DollarSign, Package } from "lucide-react"
 
 export default async function ComitenteDashboard() {
     // Mock Comitente ID

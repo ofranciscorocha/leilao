@@ -1,7 +1,7 @@
 'use client'
 
-import { useState } from 'react'
-import { Users, Plus, Trash2, Edit2, Upload, Download, Mail, Phone, Search } from 'lucide-react'
+import { useState } from "react"
+import { Users, Plus, Trash2, Edit2, Upload, Download, Mail, Phone, Search } from "lucide-react"
 import Link from 'next/link'
 
 interface ContactList {

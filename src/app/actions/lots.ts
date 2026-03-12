@@ -1,7 +1,7 @@
 'use server'
 
-import { prisma } from '@/lib/prisma'
-import { redirect } from 'next/navigation'
+import { prisma } from "@/lib/prisma"
+import { redirect } from "next/navigation"
 
 export async function createLot(formData: FormData) {
     const lotNumberStr = formData.get('lotNumber') as string;
@@ -21,7 +21,7 @@ export async function createLot(formData: FormData) {
         throw new Error("ID do leilão é obrigatório para cadastrar um lote.");
     }
 
-    const lot = await prisma.lot.create({
+    const lot = await (prisma.lot as any).create({
         data: {
             lotNumber,
             title: formData.get('title') as string,
@@ -55,7 +55,7 @@ export async function createLot(formData: FormData) {
             observacoesInternas: formData.get('observacoesInternas') as string,
             comitente: formData.get('comitente') as string,
             entrada: new Date(),
-            status: formData.get('status') as string || 'AVAILABLE',
+            status: (formData.get('status') as string) || 'AVAILABLE',
             auctionId: auctionId,
         }
     });

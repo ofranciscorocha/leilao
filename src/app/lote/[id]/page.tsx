@@ -1,17 +1,17 @@
-import { Navbar } from '@/components/public/navbar'
-import { Footer } from '@/components/public/footer'
-import { prisma } from '@/lib/prisma'
-import { notFound } from 'next/navigation'
-import { LotGallery } from '@/components/public/lot-gallery'
-import { BidForm } from '@/components/public/bid-form'
-import { Badge } from '@/components/ui/badge'
-import { Separator } from '@/components/ui/separator'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { MapPin, Calendar, Truck, AlertTriangle, CheckCircle, Info, Gavel } from 'lucide-react'
-import { formatCurrency, formatDate } from '@/lib/utils'
+import { Navbar } from "@/components/public/navbar"
+import { Footer } from "@/components/public/footer"
+import { prisma } from "@/lib/prisma"
+import { notFound } from "next/navigation"
+import { LotGallery } from "@/components/public/lot-gallery"
+import { BidForm } from "@/components/public/bid-form"
+import { Badge } from "@/components/ui/badge"
+import { Separator } from "@/components/ui/separator"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { MapPin, Calendar, Truck, AlertTriangle, CheckCircle, Info, Gavel } from "lucide-react"
+import { formatCurrency, formatDate } from "@/lib/utils"
 import Link from 'next/link'
-import { Button } from '@/components/ui/button'
+import { Button } from "@/components/ui/button"
 
 export default async function LotDetailsPage(props: { params: Promise<{ id: string }> }) {
     const params = await props.params

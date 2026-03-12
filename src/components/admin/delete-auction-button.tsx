@@ -1,12 +1,12 @@
 'use client'
 
-import { deleteAuction } from '@/app/actions/auction'
-import { Button } from '@/components/ui/button'
-import { Trash2 } from 'lucide-react'
+import { deleteAuction } from "@/app/actions/auction"
+import { Button } from "@/components/ui/button"
+import { Trash2 } from "lucide-react"
 import { toast } from 'sonner'
-import { useTransition } from 'react'
+import { useTransition } from "react"
 
-export function DeleteAuctionButton({ id }: { id: string }) {
+export async function DeleteAuctionButton({ id }: { id: string }) {
     const [isPending, startTransition] = useTransition()
 
     async function handleDelete() {

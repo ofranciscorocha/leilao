@@ -1,4 +1,5 @@
-import { Sidebar } from '@/components/admin/sidebar'
+export const dynamic = "force-dynamic"
+import { Sidebar } from "@/components/admin/sidebar"
 
 export default function AdminLayout({
     children,

@@ -44,7 +44,7 @@ export function DashboardCharts({ data }: { data: ChartDataPoint[] }) {
                             fontSize: '12px',
                             borderRadius: '2px'
                         }}
-                        formatter={(value: number) => [value, 'Lances']}
+                        formatter={(value: any) => [value, 'Lances']}
                     />
                     <Area
                         type="monotone"

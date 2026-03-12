@@ -1,8 +1,8 @@
 'use client'
 
-import { useEffect } from 'react'
-import { useRouter } from 'next/navigation'
-import { useAuthContext } from '@/contexts/auth-context'
+import { useEffect } from "react"
+import { useRouter } from "next/navigation"
+import { useAuthContext } from "@/contexts/auth-context"
 
 interface RequireAuthProps {
   children: React.ReactNode
@@ -10,7 +10,7 @@ interface RequireAuthProps {
   fallback?: React.ReactNode
 }
 
-export function RequireAuth({ children, requireAdmin = false, fallback }: RequireAuthProps) {
+export async function RequireAuth({ children, requireAdmin = false, fallback }: RequireAuthProps) {
   const router = useRouter()
   const { isAuthenticated, isAdmin, loading } = useAuthContext()
 

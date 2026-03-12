@@ -1,8 +1,8 @@
 'use client';
 
-import { useState } from 'react';
+import { useState } from "react";
 import Link from 'next/link';
-import { Gavel, Calendar, MapPin, Eye, LayoutGrid, List as ListIcon } from 'lucide-react';
+import { Gavel, Calendar, MapPin, Eye, LayoutGrid, List as ListIcon } from "lucide-react";
 
 export default function AuctionsListSection({ auctions }: { auctions: any[] }) {
     const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');

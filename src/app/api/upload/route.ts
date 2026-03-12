@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { uploadMultipleImages } from '@/lib/storage'
+import { uploadMultipleImages } from "@/lib/storage"
 
 export async function POST(request: NextRequest) {
   try {

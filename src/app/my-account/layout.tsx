@@ -1,8 +1,8 @@
-import { Navbar } from '@/components/public/navbar'
-import { Footer } from '@/components/public/footer'
+import { Navbar } from "@/components/public/navbar"
+import { Footer } from "@/components/public/footer"
 import Link from 'next/link'
-import { User, FileText, Gavel, ShoppingBag, LogOut } from 'lucide-react'
-import { Button } from '@/components/ui/button'
+import { User, FileText, Gavel, ShoppingBag, LogOut } from "lucide-react"
+import { Button } from "@/components/ui/button"
 
 export default function MyAccountLayout({
     children,

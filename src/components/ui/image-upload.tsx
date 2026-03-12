@@ -1,8 +1,8 @@
 'use client'
 
-import { useState, useRef } from 'react'
-import { Upload, X, Image as ImageIcon } from 'lucide-react'
-import { Button } from './button'
+import { useState, useRef } from "react"
+import { Upload, X, Image as ImageIcon } from "lucide-react"
+import { Button } from "./button"
 
 interface ImageUploadProps {
   value?: string[]

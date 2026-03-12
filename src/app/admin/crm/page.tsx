@@ -1,12 +1,12 @@
 'use client'
 
-import { useState } from 'react'
+import { useState } from "react"
 import {
     Kanban, Plus, User, Phone, Mail, Building, Tag,
     MessageSquare, ArrowRight, X, Edit2, Trash2, ChevronRight,
     Search, Star, TrendingUp, DollarSign, Calendar, Linkedin,
     Instagram, Users, Send
-} from 'lucide-react'
+} from "lucide-react"
 import Link from 'next/link'
 
 type Stage = 'NOVO' | 'CONTATO' | 'QUALIFICADO' | 'PROPOSTA' | 'NEGOCIACAO' | 'GANHO' | 'PERDIDO'

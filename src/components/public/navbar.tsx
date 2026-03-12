@@ -1,9 +1,9 @@
 'use client'
 
 import Link from 'next/link'
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { Search, User, Instagram, Facebook, Youtube, Linkedin } from 'lucide-react'
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Search, User, Instagram, Facebook, Youtube, Linkedin } from "lucide-react"
 
 export function Navbar() {
     return (

@@ -1,8 +1,8 @@
-import { prisma } from '@/lib/prisma'
-import { notFound } from 'next/navigation'
-import { ArrowLeft, Edit, Trash2, FileText, Paperclip, BarChart, Check, Clock, XCircle, Ban, CheckCircle2 } from 'lucide-react'
+import { prisma } from "@/lib/prisma"
+import { notFound } from "next/navigation"
+import { ArrowLeft, Edit, Trash2, FileText, Paperclip, BarChart, Check, Clock, XCircle, Ban, CheckCircle2 } from "lucide-react"
 import Link from 'next/link'
-import { StatusActions } from './status-actions'
+import { StatusActions } from "./status-actions"
 
 export default async function BidderDetailPage(props: { params: Promise<{ id: string }> }) {
     const params = await props.params;

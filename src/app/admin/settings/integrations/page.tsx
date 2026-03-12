@@ -1,9 +1,9 @@
 'use client'
 
-import { useState, useEffect } from 'react'
-import { Phone, Mail, Instagram, Save, CheckCircle, Eye, EyeOff, AlertCircle, Loader2 } from 'lucide-react'
+import { useState, useEffect } from "react"
+import { Phone, Mail, Instagram, Save, CheckCircle, Eye, EyeOff, AlertCircle, Loader2 } from "lucide-react"
 import Link from 'next/link'
-import { getSystemSettings, updateSystemSettings } from '@/app/actions/settings'
+import { getSystemSettings, updateSystemSettings } from "@/app/actions/settings"
 
 export default function IntegrationsSettingsPage() {
     const [config, setConfig] = useState({

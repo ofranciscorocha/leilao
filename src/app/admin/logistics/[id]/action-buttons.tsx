@@ -1,10 +1,10 @@
 'use client'
 
-import { useState } from 'react'
-import { ArrowLeft, Edit, RefreshCcw, Printer, Trash2, FileText } from 'lucide-react'
+import { useState } from "react"
+import { ArrowLeft, Edit, RefreshCcw, Printer, Trash2, FileText } from "lucide-react"
 import Link from 'next/link'
-import { updateLotStatus } from '@/app/actions/logistics'
-import { useRouter } from 'next/navigation'
+import { updateLotStatus } from "@/app/actions/logistics"
+import { useRouter } from "next/navigation"
 
 const LOGISTICS_STATUSES = [
     { id: 'EM_TRANSITO', label: 'Em Transito' },
@@ -20,7 +20,7 @@ const LOGISTICS_STATUSES = [
     { id: 'BLOQUEADOS', label: 'Bloqueados' },
 ]
 
-export function LotActionButtons({ lotId, currentStatus }: { lotId: string, currentStatus: string }) {
+export async function LotActionButtons({ lotId, currentStatus }: { lotId: string, currentStatus: string }) {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
     const [isLoading, setIsLoading] = useState(false)
     const router = useRouter()

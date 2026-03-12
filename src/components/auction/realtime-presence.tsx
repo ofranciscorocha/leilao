@@ -1,9 +1,9 @@
 'use client'
 
-import { useEffect, useState } from 'react'
-import { joinAuctionPresence, unsubscribe } from '@/lib/realtime'
-import { Users } from 'lucide-react'
-import { Badge } from '@/components/ui/badge'
+import { useEffect, useState } from "react"
+import { joinAuctionPresence, unsubscribe } from "@/lib/realtime"
+import { Users } from "lucide-react"
+import { Badge } from "@/components/ui/badge"
 import { RealtimeChannel } from '@supabase/supabase-js'
 
 interface RealtimePresenceProps {

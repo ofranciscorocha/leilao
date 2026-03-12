@@ -1,5 +1,5 @@
-import { Car, Home, Package2, Filter, Search, List as ListIcon } from 'lucide-react'
-import { prisma } from '@/lib/prisma'
+import { Car, Home, Package2, Filter, Search, List as ListIcon } from "lucide-react"
+import { prisma } from "@/lib/prisma"
 import Link from 'next/link'
 
 // Define the 11 statuses from the mockup

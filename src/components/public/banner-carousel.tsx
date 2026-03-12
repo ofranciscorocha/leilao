@@ -1,10 +1,10 @@
 'use client'
 
-import { useState, useEffect } from 'react'
-import { Button } from '@/components/ui/button'
-import { SearchBar } from './search-bar'
+import { useState, useEffect } from "react"
+import { Button } from "@/components/ui/button"
+import { SearchBar } from "./search-bar"
 import { Banner } from '@prisma/client'
-import { ChevronRight, ChevronLeft } from 'lucide-react'
+import { ChevronRight, ChevronLeft } from "lucide-react"
 
 interface BannerCarouselProps {
     banners: Banner[]

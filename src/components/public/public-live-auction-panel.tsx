@@ -1,11 +1,11 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState } from "react"
 import { io, Socket } from 'socket.io-client'
-import { Card } from '@/components/ui/card'
-import { Button } from '@/components/ui/button'
+import { Card } from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
 import { toast } from 'sonner'
-import { Megaphone, MessageSquare, PlayCircle, ShieldCheck } from 'lucide-react'
+import { Megaphone, MessageSquare, PlayCircle, ShieldCheck } from "lucide-react"
 
 export function PublicLiveAuctionPanel({ auction, lots }: { auction: any, lots: any[] }) {
     const auctionId = auction.id

@@ -1,5 +1,5 @@
-import { FileText, TrendingUp, DollarSign, Users, Package, Gavel } from 'lucide-react'
-import { prisma } from '@/lib/prisma'
+import { FileText, TrendingUp, DollarSign, Users, Package, Gavel } from "lucide-react"
+import { prisma } from "@/lib/prisma"
 import Link from 'next/link'
 
 export const dynamic = 'force-dynamic';

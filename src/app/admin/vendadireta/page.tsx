@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback } from "react"
 import Link from 'next/link'
 import {
   getVendasDiretas,
@@ -8,7 +8,7 @@ import {
   publishToSelect,
   unpublishFromSelect,
   deleteVendaDireta,
-} from '@/app/actions/vendaDireta'
+} from "@/app/actions/vendadireta"
 import {
   Tag,
   Plus,
@@ -24,7 +24,7 @@ import {
   Clock,
   DollarSign,
   RefreshCw,
-} from 'lucide-react'
+} from "lucide-react"
 
 const STATUS_LABELS: Record<string, { label: string; color: string }> = {
   EM_PREPARACAO: { label: 'Em Preparação', color: 'bg-yellow-100 text-yellow-800' },

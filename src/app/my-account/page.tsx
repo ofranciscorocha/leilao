@@ -1,9 +1,9 @@
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Badge } from '@/components/ui/badge'
-import { prisma } from '@/lib/prisma'
-import { formatCurrency } from '@/lib/utils'
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
+import { prisma } from "@/lib/prisma"
+import { formatCurrency } from "@/lib/utils"
 import Link from 'next/link'
-import { Button } from '@/components/ui/button'
+import { Button } from "@/components/ui/button"
 
 export default async function MyAccountDashboard() {
     // Mock user ID for now

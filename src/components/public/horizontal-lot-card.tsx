@@ -1,17 +1,17 @@
 import Link from 'next/link'
-import { Card } from '@/components/ui/card'
-import { Badge } from '@/components/ui/badge'
-import { Button } from '@/components/ui/button'
-import { formatCurrency } from '@/lib/utils'
+import { Card } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button"
+import { formatCurrency } from "@/lib/utils"
 import { Lot, Auction } from '@prisma/client'
-import { MapPin, Calendar, Fuel, Car, Gauge } from 'lucide-react'
+import { MapPin, Calendar, Fuel, Car, Gauge } from "lucide-react"
 
 interface HorizontalLotCardProps {
-    lot: Lot & { auction: Auction }
+    lot: any // Using any for flexibility with Prisma includes
 }
 
 export function HorizontalLotCard({ lot }: HorizontalLotCardProps) {
-    const mainImage = lot.images[0] || '/placeholder-car.jpg' // Assuming images is array or we fallback
+    const mainImage = lot.imageUrl || (lot.images && lot.images.length > 0 ? lot.images[0].url : '/placeholder-car.jpg')
     // In real app, we'd parse the description or have separate fields. 
     // For now, we mock the specific fields if they aren't in the Lot model yet, or display generic data.
 
@@ -79,7 +79,7 @@ export function HorizontalLotCard({ lot }: HorizontalLotCardProps) {
                     <div className="text-center mb-4">
                         <Link href={`/lote/${lot.id}`}>
                             <h5 className="text-gray-500 font-medium text-sm">Lance Inicial</h5>
-                            <h4 className="text-2xl font-bold text-gray-800">{formatCurrency(lot.initialBid)}</h4>
+                            <h4 className="text-2xl font-bold text-gray-800">{formatCurrency(lot.startingPrice)}</h4>
                         </Link>
                     </div>
 

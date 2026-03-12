@@ -1,7 +1,7 @@
 'use server'
 
-import { prisma } from '@/lib/prisma'
-import { redirect } from 'next/navigation'
+import { prisma } from "@/lib/prisma"
+import { redirect } from "next/navigation"
 
 export async function createComitente(formData: FormData) {
     const razaoSocial = formData.get('razaoSocial') as string;

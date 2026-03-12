@@ -1,9 +1,9 @@
-import { AuctioneerPanel } from '@/components/admin/auctioneer-panel'
-import { prisma } from '@/lib/prisma'
-import { notFound } from 'next/navigation'
+import { AuctioneerPanel } from "@/components/admin/auctioneer-panel"
+import { prisma } from "@/lib/prisma"
+import { notFound } from "next/navigation"
 import Link from 'next/link'
-import { Button } from '@/components/ui/button'
-import { ArrowLeft } from 'lucide-react'
+import { Button } from "@/components/ui/button"
+import { ArrowLeft } from "lucide-react"
 
 export default async function AdminLiveAuctionPage(props: { params: Promise<{ id: string }> }) {
     const params = await props.params
